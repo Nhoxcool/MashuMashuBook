@@ -1,0 +1,112 @@
+:root { 
+	--white-color: #FFF; 
+	--black-color: #000; 
+	--text-color: #333; 
+	--header--height: 120px; 
+	--navbar--height: 34px; 
+	--header-with-search-height: calc(var(- -header--height)- var(- -navbar--height));
+	--primary-color: #db4633;
+}
+
+* {
+	box-sizing: inherit;
+}
+
+html {
+	font-size: 62.5%;
+	line-height: 1.6rem;
+	font-family: 'Roboto', sans-serif;
+	box-sizing: border-box;
+}
+
+/* Reponsive width <= 1200px */
+.grid {
+	width: 1200px;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+/* cho nhung class ko muon co do dai 1200px */
+.grid__full-width {
+	width: 100%;
+}
+
+/* Reponsive row */
+.grid__row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.grid__column-2-4 {
+	padding-left: 5px;
+	padding-right: 5px;
+	width: 20%;
+}
+
+.footer {
+	margin-top:5%;
+	padding-top: 16px;
+	border-top: 4px solid var(--primary-color);
+}
+
+.footer__heading {
+	font-size: 1.5rem;
+	text-transform: uppercase;
+	color: var(--text-color);
+}
+
+.footer__list {
+	padding-left: 0;
+	list-style: none;
+}
+
+.footer-item__link {
+	text-decoration: none;
+	font-size: 1.2rem;
+	color: #737373;
+	padding: 2px 0;
+	display: flex;
+}
+
+.footer-item__link:hover {
+	color: var(--primary-color)	
+}
+
+.fa-brands{
+	font-size: 1.6rem;
+	margin: 2px 8px 0 0;
+}
+
+.footer__dowload {
+	display: flex;
+}
+
+.footer__qr-img {
+	width: 80px;
+	height: 80px;
+}
+
+.footer__dowload-apps {
+	flex: 1;
+	margin-left: 16px;
+}
+
+.footer__qr-dowload-img {
+	height: 16px;
+}
+
+.footer__qr-dowload-link {
+	text-decoration: none;
+	color: transparent;
+}
+
+.footer__bottom {
+	padding: 8px 0;
+	background-color: #F5F5F5;
+}
+
+.footer__text {
+	margin: 0;
+	font-size: 1.2 rem;
+	text-align: center;
+}
