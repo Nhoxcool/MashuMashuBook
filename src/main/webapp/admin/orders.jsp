@@ -1,3 +1,8 @@
+<%@page import="com.entity.Book_Order"%>
+<%@page import="java.util.List"%>
+<%@page import="com.DB.DBConnect"%>
+<%@page import="com.DAO.BookDAOImpl"%>
+<%@page import="com.DAO.BookOrderImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -49,40 +54,25 @@
 			    </tr>
 			  </thead>
 			  <tbody class="table-group-divider">
-			    <tr>
-			      <th scope="row">1</th>
-			      <td>Mark</td>
-			      <td>Otto</td>
-			      <td>@mdo</td>
-			      <td>@mdo</td>
-			      <td>@mdo</td>
-			      <td>@mdo</td>
-			      <td>@mdo</td>
-			      <td>@mdo</td>
-			    </tr>
-			    <tr>
-			      <th scope="row">2</th>
-			      <td>Jacob</td>
-			      <td>Thornton</td>
-			      <td>@fat</td>
-			      <td>@mdo</td>
-			      <td>@mdo</td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
-
-			    </tr>
-			    <tr>
-			      <th scope="row">3</th>
-			      <td >Larry the Bird</td>
-			      <td>@twitter</td>
-			      <td>@mdo</td>
-			      <td>@mdo</td>
-			      <td>@mdo</td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
-				  <td>@mdo</td>
-			    </tr>
+				<%
+				BookOrderImpl dao= new BookOrderImpl(DBConnect.getConn());
+				List<Book_Order> list=dao.getAllBookOrder();
+				for(Book_Order b : list){
+				%>
+					<tr>
+					<th scope="row"><%=b.getOrderId()%></th>
+					<td><%=b.getUserName()%></td>
+					<td><%=b.getEmail()%></td>
+					<td><%=b.getFulladd()%></td>
+					<td><%=b.getPhno()%></td>
+					<td><%=b.getBookName()%></td>
+					<td><%=b.getAuthor()%></td>
+					<td><%=b.getPrice()%></td>
+					<td><%=b.getPaymentType()%></td>
+				</tr>
+				<%
+				}
+				%>
 			  </tbody>
 			</table>
 
