@@ -34,21 +34,4 @@
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/main/webapp/img/banner/9vao10.png</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Downloads/banner/9vao10.png</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img/banner/books_banner.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Downloads/banner/books_banner.jpg</locationURI>
-		</link>
-		<link>
-			<name>src/main/webapp/img/banner/sach-van-hoc-27082018.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Downloads/banner/sach-van-hoc-27082018.jpg</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

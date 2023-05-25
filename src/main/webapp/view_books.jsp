@@ -51,8 +51,26 @@
 				<img src="book/<%=b.getPhotoName() %>" style="width: 100%; height: 500px ">
 			</div>
 			<div class="Product_detail col-6" >
-				<p class="Bookname"> Tên Sách: <%=b.getBookName() %></p>
+				<%
+				if (b.getBookCategory().equals("Cũ")) {
+				%>
+				<p style="font-size: 1.6rem"><%=b.getBookName() %>(Cũ)
+				<p>
+				<%
+				}else {
+				%>
+				<p style="font-size: 1.6rem"><%=b.getAuthor() %>
+				<p>
+				<%
+				}
+				%> 				
 				<p class="Author"> Tác giả: <%=b.getAuthor() %></p>
+				<%
+				if (b.getBookCategory().equals("Cũ"))
+				{%>
+				<p class="Author"> Người bán: <%=b.getEmail() %></p>
+				<% 	
+				}%>
 				<p class="Category"> Thể loại: <%=b.getBookCategory() %></p>
 				<p class="Price"> Giá: <span style="color: #c92127"><%=b.getPrice() %>đ</span></p>
 				<p class="Ship"> Chính sách giao hàng: <span style="color: #0099FF">free ship</span> </p>
