@@ -64,12 +64,13 @@
 			  <tbody class="table-group-divider">
 				<%
 				BookDAOImpl dao= new BookDAOImpl(DBConnect.getConn());
-				dao.getAllBooks();
 				List<BookDtls> list=dao.getAllBooks();
+				int i = 0;
 				for(BookDtls b : list){
+					i++;
 				%>
 					<tr>
-					<th scope="row"><%=b.getBookID()%></th>
+					<th scope="row"><%=i%></th>
 					<td><img src="../book/<%=b.getPhotoName() %>" style="width: 50px; hegiht: 50px;"></td>
 					<td><%=b.getBookName()%></td>
 					<td><%=b.getAuthor()%></td>

@@ -1,3 +1,5 @@
+<%@page import="com.entity.Book_Order"%>
+<%@page import="com.DAO.BookOrderImpl"%>
 <%@page import="com.entity.User"%>
 <%@page import="com.DAO.UserDAOImpl"%>
 <%@page import="com.entity.BookDtls"%>
@@ -43,18 +45,24 @@
 				<%
 				int i = 0;
 				int i2 = 0;
+				int i3 = 0;
 				BookDAOImpl dao= new BookDAOImpl(DBConnect.getConn());
-				dao.getAllBooks();
 				List<BookDtls> list=dao.getAllBooks();
 				for(BookDtls b : list){
 					i=i+1;
 				}
 				UserDAOImpl dao2 = new UserDAOImpl(DBConnect.getConn());
-				dao2.getAllUser();
 				List<User> list2= dao2.getAllUser();
 				for(User b : list2){
 					i2=i2+1;
 				}
+				
+				BookOrderImpl dao3 = new BookOrderImpl(DBConnect.getConn());
+				List<Book_Order> list3 = dao3.getAllBookOrder();
+				for(Book_Order b: list3){
+					i3=i3+1;
+				}
+				
 				%>
 
 		<div class="clearfix"></div>
@@ -62,19 +70,19 @@
     
     <div class="col-div-3">
       <div class="box">
-        <p><%=i2 %><br/><span>Customers</span></p>
+        <p><%=i2 %><br/><span>Khách hàng</span></p>
         <i class="fa fa-users box-icon"></i>
       </div>
     </div>
     <div class="col-div-3">
       <div class="box">
-        <p><%=i %><br/><span>Book</span></p>
+        <p><%=i %><br/><span>Sách</span></p>
         <i class="fa fa-list box-icon"></i>
       </div>
     </div>
     <div class="col-div-3">
       <div class="box">
-        <p>99<br/><span>Orders</span></p>
+        <p><%=3 %><br/><span>Đơn đặt hàng</span></p>
         <i class="fa fa-shopping-bag box-icon"></i>
       </div>
     </div>
@@ -83,20 +91,19 @@
     <div class="col-div-8">
       <div class="box-8">
       <div class="content-box">
-        <p>Top Selling Book <span>Sell All</span></p>
+        <p>Top Sách bán chạy <span>Xem tất cả</span></p>
         <br/>
         <table>
-<%--  			<%
-			BookDAOImpl dao3= new BookDAOImpl(DBConnect.getConn());
-			dao3.getAllBooks();
-			List<BookDtls> list3=dao3.getAllBooks();
-			for(BookDtls b : list3){
-			%>
 				<tr>
-			      <th>BookName</th>
-			      <th>Author</th>
-			      <th>Price</th>
-			    </tr>
+				<th>BookName</th>
+				<th>Author</th>
+				<th>Price</th>
+				</tr>
+				<%
+				BookDAOImpl dao4 = new BookDAOImpl(DBConnect.getConn());
+				List<BookDtls> list4 = dao4.getAllBooks();
+				for (BookDtls b : list4) {
+				%>
 			    <tr>
 			      <td><%=b.getBookName() %></td>
 			      <td><%=b.getAuthor() %></td>
@@ -104,7 +111,7 @@
 			    </tr>
 			<%
 			}
- 			%> --%>
+ 			%> 
  		 </table>
       </div>
     </div>
@@ -113,7 +120,7 @@
     <div class="col-div-4">
       <div class="box-4">
       <div class="content-box">
-        <p>Total Sale <span>Sell All</span></p>
+        <p>Số lượng bán hiện tại <span>Xem tất cả</span></p>
 
         <div class="circle-wrap">
       <div class="circle">

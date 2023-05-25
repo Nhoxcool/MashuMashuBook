@@ -144,7 +144,6 @@
 							</div>
 							<div class="order__btn">
 							<button class="order__btn-1">Đặt hàng ngay</button>
-							<button class="order__btn-2">Tiếp tục mua sắm</button>
 							</div>
 					</form>
 				</div>
