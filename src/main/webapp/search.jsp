@@ -45,8 +45,19 @@
 								<img src="book/<%=b.getPhotoName() %>" alt=""
 									style="width: 80%; height: 50%" class="img-thumblin">
 							</div>
-							<p style="font-size: 1.6rem"><%=b.getBookName() %>
+							<%
+							if (b.getBookCategory().equals("Cũ")) {
+							%>
+							<p style="font-size: 1.6rem"><%=b.getBookName() %>(Cũ)
 							<p>
+							<%
+							}else {
+							%>
+								<p style="font-size: 1.6rem"><%=b.getBookName() %>
+								<p>
+							<%
+							}
+							%> 
 							<p style="font-size: 1.6rem"><%=b.getAuthor() %>
 							<p>
 							<p style="font-size: 1.6rem; color: #c92127"><%=b.getPrice() %>đ</p>

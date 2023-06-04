@@ -1,3 +1,7 @@
+<%@page import="com.entity.BookDtls"%>
+<%@page import="java.util.List"%>
+<%@page import="com.DB.DBConnect"%>
+<%@page import="com.DAO.BookDAOImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -9,8 +13,6 @@
 <title>MashuMashuBook: Index</title>
 <%@include file="allCss.jsp"%>
 <link rel="stylesheet" href="css/Base.css">
-<link rel="stylesheet" href="css/Main.css">
-<link rel="stylesheet" href="css/Main3.css">
 <link rel="stylesheet" href="css/Main1.css">
 <link rel="stylesheet" href="css/footer.css">
 </head>
@@ -119,7 +121,7 @@
 				</div>
 				<div class="header__search">
 					<form action="search.jsp" method="post" class="header__search">
-					<input type="text" class="header__search-input" name="search" 
+					<input type="text" id="menu_search"class="header__search-input" name="search" 
 						placeholder="Nhập để tìm kiếm sản phẩm">
 					<button class="header__search-btn" type="submit">
 						<i class="fa-solid fa-magnifying-glass"></i>
