@@ -48,18 +48,18 @@
 	<div class="grid" style="margin-top: 3%; display: flex; background-color: #ffffff; height: 600px" >
 		<div class="row">
 			<div class ="Product-img col-6">
-				<img src="book/<%=b.getPhotoName() %>" style="width: 100%; height: 500px ">
+				<img src="book/<%=b.getPhotoName() %>" style="width: 100%; height: 400px">
 			</div>
 			<div class="Product_detail col-6" >
 				<%
 				if (b.getBookCategory().equals("Cũ")) {
 				%>
-				<p style="font-size: 1.6rem"><%=b.getBookName() %>(Cũ)
+				<p style="font-size: 2.4rem"><%=b.getBookName() %>(Cũ)
 				<p>
 				<%
 				}else {
 				%>
-				<p style="font-size: 1.6rem"><%=b.getAuthor() %>
+				<p style="font-size: 2.4rem"><%=b.getBookName() %>
 				<p>
 				<%
 				}

@@ -53,11 +53,13 @@
 							<%
 							}else {
 							%>
-								<p style="font-size: 1.6rem"><%=b.getAuthor() %>
+								<p style="font-size: 1.6rem"><%=b.getBookName() %>
 								<p>
 							<%
 							}
 							%> 
+							<p style="font-size: 1.6rem"><%=b.getAuthor() %>
+							<p>
 							<p style="font-size: 1.6rem; color: #c92127"><%=b.getPrice() %>đ</p>
 							<div class="text-center">
 							<%
