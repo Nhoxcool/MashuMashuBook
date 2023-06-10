@@ -82,7 +82,7 @@
     </div>
     <div class="col-div-3">
       <div class="box">
-        <p><%=3 %><br/><span>Đơn đặt hàng</span></p>
+        <p><%=i3 %><br/><span>Đơn đặt hàng</span></p>
         <i class="fa fa-shopping-bag box-icon"></i>
       </div>
     </div>
