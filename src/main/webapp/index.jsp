@@ -20,9 +20,6 @@
 	<div id="top">
 	</div>
 	<%@include file="all_component/Navbar.jsp"%>
-	<% 
-	User us = (User)session.getAttribute("user");
-	%>
 	<div class="grid">
 		<div class="advertise__container">
 			<div class="advertise__container-Slider">

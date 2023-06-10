@@ -15,10 +15,6 @@
 <body style="background-color: #f4f2f0">
 	<%@include file="all_component/Navbar.jsp"%>
 	
-	<%
-	User us = (User) session.getAttribute("user");
-	%>
-	
 	<div class="grid">
 		<img src="img/banner/sach-van-hoc-27082018.jpg" style="width: 100%">
 		<h1>Sách Văn Học</h1>

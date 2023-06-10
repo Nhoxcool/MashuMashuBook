@@ -15,9 +15,6 @@
 <body style="background-color: #f4f2f0">
 	<%@include file="all_component/Navbar.jsp"%>
 	
-	<%
-	User us = (User) session.getAttribute("user");
-	%>
 	
 	<div class="grid">
 		<img src="img/banner/9vao10.png" style="width: 100%">

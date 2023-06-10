@@ -1,3 +1,5 @@
+
+<%@page import="com.entity.User"%>
 <%@page import="com.entity.BookDtls"%>
 <%@page import="java.util.List"%>
 <%@page import="com.DB.DBConnect"%>
@@ -17,6 +19,9 @@
 <link rel="stylesheet" href="css/footer.css">
 </head>
 <body>		
+	<% 
+	User us = (User)session.getAttribute("user");
+	%>
 	<header class="header">
 		<div class="grid">
 			<nav class="header__navbar">
@@ -60,11 +65,25 @@
 					</a>
 					</li>
 					<c:if test = "${not empty user }">
-					<a href=""> 
-					<li class="header__navbar-item header__navbar-item__Strong header__navbar-item__Separate">${user.name}</li>
-					</a>
-					<a href="logout">
-					<li class="header__navbar-item header__navbar-item__Strong ">Logout</li>
+							<%
+							if (us.getName().equals("Admin")) {
+							%>	
+								<a href="admin/home.jsp"> 
+								<li class="header__navbar-item header__navbar-item__Strong header__navbar-item__Separate">${user.name}</li>
+								</a>
+								<a href="logout">
+								<li class="header__navbar-item header__navbar-item__Strong ">Logout</li>
+							<%
+							} else {
+							%> 
+								<a href="setting.jsp"> 
+								<li class="header__navbar-item header__navbar-item__Strong header__navbar-item__Separate">${user.name}</li>
+								</a>
+								<a href="logout">
+								<li class="header__navbar-item header__navbar-item__Strong ">Logout</li>
+							<% 
+							}
+							%>	
 					</a>
 					</c:if>
 					

@@ -28,7 +28,6 @@
 		  </thead>
 		  <tbody>
 		  <%
-		  User us = (User)session.getAttribute("user");
 		  String email = us.getEmail();
 		  BookDAOImpl dao = new BookDAOImpl(DBConnect.getConn());
 		  List<BookDtls> list = dao.getBookByOld(email,"Cũ");

@@ -45,12 +45,12 @@
 			<a href="view_books.jsp?bid=<%=b.getBookID() %>"  class="path"><%=b.getBookName() %></a>
 		</p>
 	</div>
-	<div class="grid" style="margin-top: 3%; display: flex; background-color: #ffffff; height: 600px" >
-		<div class="row">
+	<div class="grid" style="margin-top: 3%; display: flex; background-color: #ffffff; " >
+		<div class="row" style="width: 100%; padding: 50px 50px">
 			<div class ="Product-img col-6">
-				<img src="book/<%=b.getPhotoName() %>" style="width: 100%; height: 400px">
+				<img src="book/<%=b.getPhotoName() %>" style="width: 80%; height: 400px;">
 			</div>
-			<div class="Product_detail col-6" >
+			<div class="Product_detail col-6">
 				<%
 				if (b.getBookCategory().equals("Cũ")) {
 				%>
@@ -97,11 +97,13 @@
 		</div>
 	</div>
 	
-	<div class="grid" style="margin-top: 5%; height: 450px; background-color: #ffffff">
-		<h2>Thông tin sản phẩm</h2>
-		<p class="book_detail">
-			<%=b.getBookDetail() %>
-		</p>
+	<div class="grid" style="margin-top: 5%; background-color: #ffffff">
+		<div style="padding: 10px 10px">
+			<h2>Thông tin sản phẩm</h2>
+			<p class="book_detail">
+				<%=b.getBookDetail() %>
+			</p>
+		</div>
 	</div>
 	
 	
