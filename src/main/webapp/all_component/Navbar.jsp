@@ -85,7 +85,6 @@
 							%>	
 					</a>
 					</c:if>
-					
 					<c:if test = "${empty user }">
 					<a href="register.jsp"> 
 					<li class="header__navbar-item header__navbar-item__Strong header__navbar-item__Separate">Đăng
