@@ -14,7 +14,6 @@
 <%@include file="all_component/Navbar.jsp"%>
 
 					<%
-					User us = (User)session.getAttribute("user");
 					us = null;
 					%>
 					<div class="grid">
