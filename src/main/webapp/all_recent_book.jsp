@@ -18,9 +18,6 @@
 </head>
 <body style="background-color: #f4f2f0">
 
-	<%
-	User us = (User) session.getAttribute("user");
-	%>
 
 	<c:if test= "${not empty addCart }">
 	

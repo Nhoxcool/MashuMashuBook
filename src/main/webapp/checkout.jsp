@@ -52,7 +52,6 @@
 					  <tbody>
 					  
 					  <%
-					  User us = (User)session.getAttribute("user");
 					  CartDAOImpl dao = new CartDAOImpl(DBConnect.getConn());
 					  List<Cart> list= dao.getBookByUser(us.getId());
 					  Double totalPrice=0.00;

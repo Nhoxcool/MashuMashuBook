@@ -33,7 +33,6 @@
 			</thead>
 			
 			<%
-			User us = (User)session.getAttribute("user");
 			BookOrderImpl dao = new BookOrderImpl(DBConnect.getConn());
 			List<Book_Order> list = dao.getBook(us.getEmail());
 			for(Book_Order b:list)
