@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Sách văn học</title>
+<title>Sách Nước Ngoài</title>
 <%@include file="all_component/allCss.jsp"%>
 </head>
 <body style="background-color: #f4f2f0">
@@ -17,12 +17,12 @@
 	
 	<div class="grid">
 		<img src="img/banner/sach-van-hoc-27082018.jpg" style="width: 100%">
-		<h1>Sách Văn Học</h1>
+		<h1>Sách Nước Ngoài</h1>
 		<div class="container-fluid">
 			<div class="row">		
 			<%
 			BookDAOImpl dao = new BookDAOImpl(DBConnect.getConn());
-			List<BookDtls> list = dao.getAllliteraryBooks();
+			List<BookDtls> list = dao.getAllForeignBook();
 			for (BookDtls b: list) 
 			{%>
 				<div class="col-md-3" style="margin-top: 5%">

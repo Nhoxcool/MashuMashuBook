@@ -22,6 +22,8 @@ public interface BookDAO {
 	
 	public List<BookDtls> getOldBooks();
 	
+	public List<BookDtls> getForeignBook();
+	
 	public List<BookDtls> getliteraryBooks();
 	
 	public List<BookDtls> getAllRecentBooks();
@@ -31,6 +33,8 @@ public interface BookDAO {
 	public List<BookDtls> getAllliteraryBooks();
 	
 	public List<BookDtls> getAllOldBooks();
+	
+	public List<BookDtls> getAllForeignBook();
 	
 	public List<BookDtls> getBookByOld (String email,String Category);
 	

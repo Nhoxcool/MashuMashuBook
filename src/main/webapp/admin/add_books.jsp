@@ -68,9 +68,8 @@
 								<select id="inputState" name="btype" class="form-control">
 									<option selected>--Vui lòng chọn--</option>
 									<option value="Sách giáo khoa">Sách giáo khoa</option>
-									<option value="Foreign Book">Foreign Book </option>
+									<option value="Sách nước ngoài">Sách nước ngoài </option>
 									<option value="Sách văn học">Sách văn học</option>
-									<option value="Sách kinh tế">Sách kinh tế</option>
 								</select>
 							</div>
 							

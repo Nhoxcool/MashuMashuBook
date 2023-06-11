@@ -214,9 +214,10 @@ public class BookDAOImpl implements BookDAO{
 		List<BookDtls> list=new ArrayList<BookDtls>();
 		BookDtls b=null;
 		try {
-			String sql = "select * from book_detail where bookCategory=? order by bookId DESC";
+			String sql = "select * from book_detail where bookCategory=? and status=? order by bookId DESC";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,"Cũ");
+			ps.setString(2,"Active");
 			ResultSet rs = ps.executeQuery();
 			int i=1;
 			while(rs.next() && i<=4)
@@ -244,9 +245,10 @@ public class BookDAOImpl implements BookDAO{
 		List<BookDtls> list=new ArrayList<BookDtls>();
 		BookDtls b=null;
 		try {
-			String sql = "select * from book_detail where bookCategory=? order by bookId DESC";
+			String sql = "select * from book_detail where bookCategory=? and status=? order by bookId DESC";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1,"Sách văn học");
+			ps.setString(2,"Active");
 			ResultSet rs = ps.executeQuery();
 			int i=1;
 			while(rs.next() && i<=4)
@@ -470,6 +472,66 @@ public class BookDAOImpl implements BookDAO{
 		}
 		
 		
+		return list;
+	}
+
+	public List<BookDtls> getForeignBook() {
+		List<BookDtls> list=new ArrayList<BookDtls>();
+		BookDtls b=null;
+		try {
+			String sql = "select * from book_detail where bookCategory=? and status=? order by bookId DESC";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1,"Sách nước ngoài");
+			ps.setString(2,"Active");
+			ResultSet rs = ps.executeQuery();
+			int i=1;
+			while(rs.next() && i<=4)
+			{
+				b = new BookDtls();
+				b.setBookID(rs.getInt(1));
+				b.setBookName(rs.getString(2));
+				b.setAuthor(rs.getString(3));				
+				b.setPrice(rs.getString(4));
+				b.setBookCategory(rs.getString(5));
+				b.setBookDetail(rs.getString(6));
+				b.setStatus(rs.getString(7));
+				b.setPhotoName(rs.getString(8));
+				b.setEmail(rs.getString(9));
+				list.add(b);
+				i++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public List<BookDtls> getAllForeignBook() {
+		List<BookDtls> list=new ArrayList<BookDtls>();
+		BookDtls b=null;
+		try {
+			String sql = "select * from book_detail where bookCategory=? and status=? order by bookId DESC";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1,"Sách nước ngoài");
+			ps.setString(2,"Active");
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				b = new BookDtls();
+				b.setBookID(rs.getInt(1));
+				b.setBookName(rs.getString(2));
+				b.setAuthor(rs.getString(3));				
+				b.setPrice(rs.getString(4));
+				b.setBookCategory(rs.getString(5));
+				b.setBookDetail(rs.getString(6));
+				b.setStatus(rs.getString(7));
+				b.setPhotoName(rs.getString(8));
+				b.setEmail(rs.getString(9));
+				list.add(b);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
 	
