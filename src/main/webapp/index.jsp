@@ -250,6 +250,67 @@
 	</div>
 	
 	
+	
+		<!-- Sách nước ngoài -->
+		<div class="grid" style="margin-top: 3%">
+		<div class="container">
+			<div class="title">
+				<h2>Sách Nước Ngoài</h2>
+			</div>
+			<div class="row">
+				<% 
+				BookDAOImpl dao5 = new BookDAOImpl(DBConnect.getConn());
+				List<BookDtls> list5 = dao5.getForeignBook();
+				for(BookDtls b: list5) {
+				%>
+				<div class="col-md-3 book__product">
+					<div class="card crd-ho">
+						<div class="card-body">
+						<a href="view_books.jsp?bid=<%=b.getBookID() %>" style="text-decoration: none; color: #333;">
+							<div class="text-center">
+								<img src="book/<%=b.getPhotoName() %>" alt=""
+									style="width: 80%; height: 50%" class="img-thumblin">
+							</div>
+							<p style="font-size: 1.6rem"><%=b.getBookName() %>
+							<p>
+							<p style="font-size: 1.6rem"><%=b.getAuthor() %>
+							<p>
+							<p style="font-size: 1.6rem; color: #c92127"><%=b.getPrice() %>đ</p>
+							<div class="text-center">
+							<%
+							if (us == null) {
+							%>	
+								<a href="login.jsp">
+									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+								</a> 
+							<%
+							} else {
+							%> 
+								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+								</a> 
+							<% 
+							}
+							%>	
+								<a href="view_books.jsp?bid=<%=b.getBookID() %>">
+									<button class="Detail__btn">Xem chi tiết</button>
+								</a>
+							</div>
+						</a>
+						</div>
+					</div>
+				</div>
+				<%
+				}
+				%>
+			</div>
+			<div class="text-center mt1">
+				<a href="all_foreign_book.jsp"><button class="Viewall__btn">Xem Thêm</button></a>
+			</div>
+		</div>
+	</div>
+	
+	
 	<!-- Sách cũ -->
 	<div class="grid" style="margin-top: 3%">
 		<div class="container">

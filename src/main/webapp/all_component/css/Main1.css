@@ -168,12 +168,11 @@
 
 /* header dropdown menu */
 .header__dropdown-menu {
-	width: 15%;
+	width: 12%;
 	margin-left: 0%;
 	top: 14%;
 	border: 2px solid;
 	border-color: #fe6433;
-	height: 360px;
 	background-color: var(--white-color);
 	display: flex;
 	position: absolute;
