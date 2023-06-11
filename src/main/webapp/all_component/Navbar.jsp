@@ -58,7 +58,7 @@
 							chúng tôi
 					</a></li>
 					<li class="header__navbar-item">
-					<a href="setting.jsp"class="header__navbar-link"> 
+					<a href=""class="header__navbar-link"> 
 					<i class="header__navbar-icon fa-regular fa-circle-question"></i>
 							Cài Đặt
 					</a>
@@ -71,7 +71,7 @@
 								<li class="header__navbar-item header__navbar-item__Strong header__navbar-item__Separate">${user.name}</li>
 								</a>
 								<a href="logout">
-								<li class="header__navbar-item header__navbar-item__Strong ">Logout</li>
+								<li class="header__navbar-item header__navbar-item__Strong ">Đăng Xuất</li>
 							<%
 							} else {
 							%> 
@@ -79,7 +79,7 @@
 								<li class="header__navbar-item header__navbar-item__Strong header__navbar-item__Separate">${user.name}</li>
 								</a>
 								<a href="logout">
-								<li class="header__navbar-item header__navbar-item__Strong ">Logout</li>
+								<li class="header__navbar-item header__navbar-item__Strong ">Đăng Xuất</li>
 							<% 
 							}
 							%>	

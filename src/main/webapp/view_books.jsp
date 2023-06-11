@@ -76,9 +76,6 @@
 				<p class="Ship"> Chính sách giao hàng: <span style="color: #0099FF">free ship</span> </p>
 				<p class="Return" >Đổi trả trong vòng: <span style="color: #0099FF">30 ngày </span></p>	
 				<%
-				User us = (User)session.getAttribute("user");
-				%>
-				<%
 				if (us == null) {
 				%>
 				<a href="login.jsp">
