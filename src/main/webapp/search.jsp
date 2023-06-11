@@ -19,14 +19,11 @@
 <body style="background-color: #f4f2f0">
 
 	<%
-	User us = (User) session.getAttribute("user");
 	if(request.getCharacterEncoding()==null)
 		request.setCharacterEncoding("UTF-8");
 	String search = request.getParameter("search");
 	%>
-
 	<%@include file="all_component/Navbar.jsp"%>
-	
 	<div class="grid">
 		<img src="img/banner/books_banner.jpg" style="width: 100%">
 		<h1>Tìm kiếm sản phẩm: <%=search %></h1>
