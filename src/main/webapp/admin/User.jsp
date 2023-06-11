@@ -1,3 +1,5 @@
+<%@page import="com.entity.User"%>
+<%@page import="com.DAO.UserDAOImpl"%>
 <%@page import="com.entity.BookDtls"%>
 <%@page import="java.util.List"%>
 <%@page import="com.DB.DBConnect"%>
@@ -10,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Tất cả sách</title>
+<title>Người Dùng</title>
 <link>
 <%@include file="allCss.jsp"%>
 <link rel="stylesheet" href="css/Adminhome2.css?version=1">
@@ -32,8 +34,8 @@
 
 	<div class="head">
 		<div class="col-div-6">
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav"  >&#9776; Tất cả Sách</span>
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav2"  >&#9776; Tất cả Sách</span>
+<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav"  >&#9776; Tất cả Người Dùng</span>
+<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav2"  >&#9776; Tất cả Người Dùng</span>
 </div>
 	
 	<div class="clearfix"></div>
@@ -53,34 +55,27 @@
 			  <thead class="bg-info-subtle">
 			    <tr>
 			      <th scope="col">id</th>
-			      <th scope="col">Hình ảnh</th>
-			      <th scope="col">Tên Sách</th>
-			      <th scope="col">Tên tác giả</th>
-			      <th scope="col">giá</th>
-			      <th scope="col">thể loại</th>
-			      <th scope="col">trạng thái</th>
+			      <th scope="col">Tên</th>
+			      <th scope="col">Email</th>
+			      <th scope="col">Số Điện Thoại</th>
 			      <th scope="col">Điều chỉnh</th>
 			    </tr>
 			  </thead>			  
 			  <tbody class="table-group-divider">
 				<%
-				BookDAOImpl dao= new BookDAOImpl(DBConnect.getConn());
-				List<BookDtls> list=dao.getAllBooks();
+				UserDAOImpl dao= new UserDAOImpl(DBConnect.getConn());
+				List<User> list=dao.getAllUser();
 				int i = 0;
-				for(BookDtls b : list){
+				for(User b : list){
 					i++;
 				%>
 					<tr>
 					<th scope="row"><%=i%></th>
-					<td><img src="../book/<%=b.getPhotoName() %>" style="width: 50px; hegiht: 50px;"></td>
-					<td><%=b.getBookName()%></td>
-					<td><%=b.getAuthor()%></td>
-					<td><%=b.getPrice()%></td>
-					<td><%=b.getBookCategory()%></td>
-					<td><%=b.getStatus()%></td>
+					<td><%=b.getName()%></td>
+					<td><%=b.getEmail()%></td>
+					<td><%=b.getPhno()%></td>
 					<td>
-					<a href="edit_books.jsp?id=<%=b.getBookID()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
-					<a href="../delete?id=<%=b.getBookID() %>" class="btn btn-sm btn-danger">Xóa</a>
+					<a href="../deleteuser?id=<%=b.getId() %>" class="btn btn-sm btn-danger">Xóa</a>
 					</td>
 				</tr>
 				<%
