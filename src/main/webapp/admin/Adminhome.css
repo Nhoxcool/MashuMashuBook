@@ -20,7 +20,7 @@ body{
 }
 
 .logo span{
-	color: #f7403b;
+	color: #46aef7;
 }
 
 
@@ -30,7 +30,7 @@ body{
   z-index: 10000;
   top: 0;
   left: 0;
-  background-color: #B0E0E6;
+  background-color:#34b5e2;
   transition: 0.5s;
   padding-top: 30px;
 }
@@ -38,13 +38,13 @@ body{
   padding: 15px 8px 15px 32px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: #fff;
   display: block;
   transition: 0.3s;
 }
 .sidenav .icon-a:hover {
   color: #98FB98;
-  background-color: #FF7F50;
+  background-color: #faaa20;
 }
 
 .sidenav{
@@ -95,7 +95,7 @@ body{
 .box{
 	width: 85%;
 	height: 100px;
-	background-color: #FA8072;
+	background-color: #34b5e2;
 	margin-left: 10px;
 	padding:10px;
 }
@@ -144,7 +144,7 @@ body{
 }
 .box-8, .box-4{
 	width: 95%;
-	background-color: #FA8072;
+	background-color: #34b5e2;
 	height: 330px;
 	
 }
@@ -216,4 +216,38 @@ table ,th ,td{
   z-index: 100;
   font-weight: 700;
   font-size: 2em;
+}
+
+.editbutton{
+	width:40%;
+	margin-left: 32%;
+	font-size: 1rem;
+	color: #fff;
+	font-weight:bold;
+	height: 35px;
+	outline: none;
+	border: none;
+	border-radius: 15px;
+	background-color: #ef8134;
+}
+
+.editbutton:hover {
+	background-color: #ff9e50;
+}
+
+.addbutton{
+	width:40%;
+	margin-left: 30%;
+	font-size: 1rem;
+	color: #fff;
+	font-weight:bold;
+	height: 35px;
+	outline: none;
+	border: none;
+	border-radius: 15px;
+	background-color: #ef8134;
+}
+
+.addbutton:hover {
+	background-color: #ff9e50;
 }

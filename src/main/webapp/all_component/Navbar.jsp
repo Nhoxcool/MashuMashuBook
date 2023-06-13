@@ -55,8 +55,7 @@
 				<ul class="header__navbar-list">
 					<li class="header__navbar-item"><a href=""
 						class="header__navbar-link"> <i
-							class="header__navbar-icon fa-solid fa-bell"></i> Liên hệ với
-							chúng tôi
+							class="header__navbar-icon fa-solid fa-bell"></i> Thông Báo
 					</a></li>
 					<li class="header__navbar-item">
 					<a href=""class="header__navbar-link"> 

@@ -9,15 +9,15 @@
 <title>Đặt hàng thành công</title>
 <%@include file="all_component/allCss.jsp"%>
 </head>
-<body style="background-color: #f4f2f0">
+<body style="background-color: rgb(189,228,251)">
 <%@include file="all_component/Navbar.jsp"%>
 	<div class="container text-center" style="margin-top: 5%; background: white; height: 500px">
 		<i class="fa-solid fa-circle-check fa-8x" style="color: green; margin-top: 8%"></i>
 		<p style="font-size: 3.0rem">Cảm Ơn Bạn</p>
 		<p style="font-size: 3.0rem">Đơn đặt hàng của bạn đã thành công</p>
 		<p style="font-size: 3.0rem">Trong Vòng từ 2-3 ngày sẽ được gửi đến địa chỉ của bạn</p>
-		<a href="index.jsp" class="btn btn-primary btn-lg mt-3">Trang Chủ</a>
-		<a href="order.jsp" class="btn btn-danger btn-lg mt-3 ">Xem đơn đặt hàng của bạn</a>
+		<a href="index.jsp" style="text-decoration: none;"><button class="HomeButton">Trang Chủ</button></a>
+		<a href="order.jsp"  style="text-decoration: none;"><button class="CheckOrderButton">Xem đơn đặt hàng của bạn</button></a>
 	</div>
 <%@include file="all_component/footer.jsp"%>
 </body>

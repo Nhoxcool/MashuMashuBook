@@ -34,8 +34,8 @@
 
 	<div class="head">
 		<div class="col-div-6">
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav"  >&#9776; Tất cả Người Dùng</span>
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav2"  >&#9776; Tất cả Người Dùng</span>
+<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav"  >&#9776; Tất cả Người Dùng</span>
+<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav2"  >&#9776; Tất cả Người Dùng</span>
 </div>
 	
 	<div class="clearfix"></div>

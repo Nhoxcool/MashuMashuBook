@@ -10,7 +10,7 @@
 <title>Đăng nhập</title>
 <%@include file="all_component/allCss.jsp"%>
 </head>
-<body style="background-color: #b2dce6">
+<body style="background-color: rgb(189,228,251)">
 <%@include file="all_component/Navbar.jsp"%>
 
 					<%
@@ -18,8 +18,8 @@
 					%>
 					<div class="grid">
 						<div class="row">
-							<div class="register__form" style="width: 40%; font-size:2rem; border-radius: 10px ;margin: 5% auto; background-color: var(--white-color)">
-							<h2 style="text-align: center">Đăng nhập</h2>
+							<div class="register__form" style="width: 40%; font-size:2.2rem; border-radius: 10px ;margin: 12% auto; background-color: var(--white-color)">
+							<h2 style="text-align: center; padding-top: 10px; font-size: 2.5rem">Đăng nhập</h2>
 							
 							<c:if test="${not empty succMsg }">
 								<p class="text-center text-success">${succMsg}</p>
@@ -51,7 +51,7 @@
 								  </div>
 								  <div class="text-center">
 									  <button type="submit" class="Submit__btn2" style="margin-bottom: 15px"> Đăng Nhập</button>
-									  <a href="register.jsp" style="display: block">Tạo tài khoản</a>							  
+									  <a href="register.jsp" style="display: block; padding-bottom: 10px">Tạo tài khoản</a>							  
 								  </div> 
 							  </form>
 							</div>

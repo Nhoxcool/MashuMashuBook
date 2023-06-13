@@ -4,7 +4,9 @@ body{
 	background-color: white;
 	font-family: system-ui;
 }
-
+.clearfix{
+	clear: both;
+}
 .logo{
 	margin: 0px;
 	margin-top :-20%;
@@ -18,15 +20,17 @@ body{
 }
 
 .logo span{
-	color: #f7403b;
+	color: #46aef7;
 }
+
+
 .sidenav {
-  height: 100%;
+  height: 100vh;
   width: 300px;
-  z-index: 1;
+  z-index: 10000;
   top: 0;
   left: 0;
-  background-color: #B0E0E6;
+  background-color:#34b5e2;
   transition: 0.5s;
   padding-top: 30px;
 }
@@ -34,16 +38,17 @@ body{
   padding: 15px 8px 15px 32px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: #fff;
   display: block;
   transition: 0.3s;
 }
 .sidenav .icon-a:hover {
   color: #98FB98;
-  background-color: #FF7F50;
+  background-color: #faaa20;
 }
+
 .sidenav{
-  position: fixed;
+  position:fixed;
   top: 0;
   right: 25px;
   font-size: 36px;
@@ -90,7 +95,7 @@ body{
 .box{
 	width: 85%;
 	height: 100px;
-	background-color: FFA07A;
+	background-color: #FA8072;
 	margin-left: 10px;
 	padding:10px;
 }
@@ -139,7 +144,7 @@ body{
 }
 .box-8, .box-4{
 	width: 95%;
-	background-color: #FFA07A;
+	background-color: #FA8072;
 	height: 330px;
 	
 }
@@ -149,6 +154,17 @@ body{
 
 .box-8{
 	margin-left: 10px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+table ,th ,td{
+  text-align: left;
+  padding:15px;
+  border-bottom: 1px solid #81818140;
 }
 .circle-wrap {
   margin: 50px auto;
