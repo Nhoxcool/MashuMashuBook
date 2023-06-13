@@ -24,7 +24,7 @@
 	
 	<div class="grid">
 		<img src="img/banner/sach-van-hoc-27082018.jpg" style="width: 100%">
-		<h1>Sách Văn Học</h1>
+		<h1 style="margin-top: 2%">Sách Văn Học</h1>
 		<div class="container-fluid">
 			<div class="row">		
 			<%

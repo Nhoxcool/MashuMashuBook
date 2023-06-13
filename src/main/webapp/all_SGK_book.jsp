@@ -24,7 +24,7 @@
 	
 	<div class="grid">
 		<img src="img/banner/9vao10.png" style="width: 100%">
-		<h1>Sách Giáo Khoa</h1>
+		<h1 style="margin-top: 2%">Sách Giáo Khoa</h1>
 		<div class="container-fluid">
 			<div class="row">		
 			<%
