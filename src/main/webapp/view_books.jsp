@@ -121,7 +121,7 @@
 				<div class="grid" style="margin-top: 3%">
 				<div class="container">
 				<div class="title">
-				<h2>Sách Cùng thể loại</h2>
+					<h2 class="title__text">Sách Cùng thể loại</h2>
 				</div>
 				<div class="row">
 				<%
@@ -165,7 +165,7 @@
 							if (us == null) {
 							%>	
 								<a href="login.jsp">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
@@ -174,13 +174,13 @@
 								if (!us.getName().equals("Admin")) {
 								%>	
 									<a href="cart?bid=<%=b2.getBookID() %>&&uid=<%=us.getId() %>">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								} else {
 								%>
 									<a href="">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								}
@@ -188,9 +188,6 @@
 							<% 
 							}
 							%>	
-								<a href="view_books.jsp?bid=<%=b2.getBookID() %>">
-									<button class="Detail__btn">Xem chi tiết</button>
-								</a>
 							</div>
 						</a>
 						</div>
@@ -248,7 +245,7 @@
 				<div class="grid" style="margin-top: 3%">
 				<div class="container">
 				<div class="title">
-				<h2>Sách Cùng tác giả</h2>
+					<h2 class="title__text">Sách Cùng tác giả</h2>
 				</div>
 				<div class="row">
 				<%
@@ -292,7 +289,7 @@
 							if (us == null) {
 							%>	
 								<a href="login.jsp">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
@@ -301,13 +298,13 @@
 								if (!us.getName().equals("Admin")) {
 								%>	
 									<a href="cart?bid=<%=b2.getBookID() %>&&uid=<%=us.getId() %>">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								} else {
 								%>
 									<a href="">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								}
@@ -315,9 +312,6 @@
 							<% 
 							}
 							%>	
-								<a href="view_books.jsp?bid=<%=b2.getBookID() %>">
-									<button class="Detail__btn">Xem chi tiết</button>
-								</a>
 							</div>
 						</a>
 						</div>
@@ -351,7 +345,7 @@
 				<div class="grid" style="margin-top: 3%">
 				<div class="container">
 				<div class="title">
-				<h2>Sách Cũ cùng tên</h2>
+					<h2 class="title__text">Sách Cũ cùng tên</h2>
 				</div>
 				<div class="row">
 				<%
@@ -395,7 +389,7 @@
 								if (us == null) {
 								%>	
 									<a href="login.jsp">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								} else {
@@ -404,13 +398,13 @@
 									if (!us.getName().equals("Admin")) {
 									%>	
 										<a href="cart?bid=<%=b2.getBookID() %>&&uid=<%=us.getId() %>">
-											<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+											<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 										</a> 
 									<%
 									} else {
 									%>
 										<a href="">
-											<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+											<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 										</a> 
 									<%
 									}
@@ -418,9 +412,6 @@
 								<% 
 								}
 								%>	
-									<a href="view_books.jsp?bid=<%=b2.getBookID() %>">
-										<button class="Detail__btn">Xem chi tiết</button>
-									</a>
 								</div>
 							</a>
 							</div>
@@ -439,6 +430,11 @@
 			}
 	        %>
 	<!-- End of Sách cũ cùng loại -->
+	<div class="grid" style="margin-top: 5%">
+		<div class="comment">
+			<h2>Bình luận</h2>
+		</div>
+	</div>
 	<%@include file="all_component/footer.jsp"%>
 </body>
 </html>
