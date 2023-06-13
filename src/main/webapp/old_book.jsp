@@ -9,12 +9,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Sách cũ của bạn</title>
 <%@include file="all_component/allCss.jsp"%>
 </head>
-<body>
+<body style="background-color: rgb(189,228,251)">
 	<%@include file="all_component/Navbar.jsp"%>
-	<div class="grid p-5">
+	<div class="grid p-5" style="background-color: white; margin-top: 3%">
+		<h2 style="text-align: center; font-size: 2.5rem">Sách Cũ Đang Bán Của Bạn</h2>
 	    <table class="table table-striped fs-2">
 		  <thead class="bg-info-subtle">
 		    <tr>
@@ -48,5 +49,6 @@
 		  </tbody>
 		</table>
 	</div>
+	<%@include file="all_component/footer.jsp"%>
 </body>
 </html>

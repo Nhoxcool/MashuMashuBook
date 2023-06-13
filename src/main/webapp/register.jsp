@@ -9,12 +9,12 @@
 <title>Đăng ký</title>
 <%@include file="all_component/allCss.jsp"%>
 </head>
-<body style="background-color: #afceae">
+<body style="background-color: rgb(189,228,251)">
 <%@include file="all_component/Navbar.jsp"%>
 					<div class="grid">
 						<div class="row">
-							<div class="register__form" style="width: 40%; font-size:2rem; border-radius: 10px ;margin: 5% auto; background-color: var(--white-color)">
-							<h2 style="text-align: center">Đăng ký</h2>
+							<div class="register__form" style="width: 40%; font-size:2.2rem; border-radius: 10px ;margin: 5% auto; background-color: var(--white-color)">
+							<h2 style="text-align: center; padding-top: 10px; font-size: 2.5rem">Đăng ký</h2>
 							<c:if test="${not empty succMsg }">
 								<p class="text-center text-success">${succMsg}</p>
 								<c:remove var="succMsg" scope="session"/>
@@ -39,11 +39,11 @@
 								    <input type="number" class="form-control form-control-lg" id="exampleInputEmail1" required="required" name="phno">
 								  </div>	
 								  <div class="mb-3">
-								    <label for="exampleInputPassword1" class="form-label">Password</label>
+								    <label for="exampleInputPassword1" class="form-label">Mật khẩu</label>
 								    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" required="required" name="password">
 								  </div>
 								  <div class="mb-3">
-								    <label for="exampleInputPassword1" class="form-label">Nhập lại password</label>
+								    <label for="exampleInputPassword1" class="form-label">Nhập lại mật khẩu</label>
 								    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" required="required" name="repassword">
 								  </div>
 								  <div class="mb-3 form-check">

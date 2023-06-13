@@ -28,8 +28,8 @@
 
 	<div class="head">
 		<div class="col-div-6">
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav"  >&#9776; Thêm Sách</span>
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav2"  >&#9776; Thêm Sách</span>
+<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav"  >&#9776; Thêm Sách</span>
+<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav2"  >&#9776; Thêm Sách</span>
 </div>
 	
 	<div class="clearfix"></div>
@@ -39,7 +39,7 @@
 			<div class="col-md-4 offset-md-4">
 				<div class="card">
 					<div class="card-body">
-						<h4 class ="text-center">Add Books</h4>
+						<h4 class ="text-center">Thêm Sách</h4>
 						
 							<c:if test="${not empty succMsg }">
 								<p class="text-center text-success">${succMsg}</p>
@@ -60,7 +60,7 @@
 								<input name="author" type="text" class="form-control" id="exampleInputAuthor" >
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPrice">Price*</label>
+								<label for="exampleInputPrice">Giá tiền*</label>
 								<input name="price" type="Number" class="form-control" id="exampleInputPrice" >
 							</div>
 							<div class="form-group">
@@ -95,7 +95,7 @@
 								<input name="bimg" type="file" class="form-control-file" id="exampleFormControlFile1">
 							</div>
 							
-							<button type="submit" class="btn btn-primary">Thêm</button>
+							<button type="submit" class="addbutton">Thêm</button>
 						</form>
 					</div>
 				</div>

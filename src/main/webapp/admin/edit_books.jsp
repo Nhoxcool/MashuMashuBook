@@ -31,8 +31,8 @@
 
 	<div class="head">
 		<div class="col-div-6">
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav"  >&#9776; Chỉnh Sửa Sách</span>
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav2"  >&#9776; Chỉnh Sửa Sách</span>
+<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav"  >&#9776; Chỉnh Sửa Sách</span>
+<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav2"  >&#9776; Chỉnh Sửa Sách</span>
 </div>
 	
 	<div class="clearfix"></div>
@@ -80,7 +80,7 @@
 								%>
 								</select>
 							</div>
-							<button type="submit" class="btn btn-primary" style="margin-left: 40%">Thay Đổi</button>
+							<button type="submit" class="editbutton">Thay Đổi</button>
 						</form>
 					</div>
 				</div>

@@ -14,7 +14,7 @@
 <title>Giỏ hàng</title>
 <%@include file="all_component/allCss.jsp"%>
 </head>
-<body style="background-color: #b2dce6">
+<body style="background-color: rgb(189,228,251)">
 <%@include file="all_component/Navbar.jsp"%>
 <c:if test="${empty user }">
 	<c:redirect url="logout"></c:redirect>	
@@ -38,7 +38,7 @@
 		<div class="col-8" >
 			<div class="card bg-white">
 				<div class="card-body">
-				<h3 class="text-center text-succes">Sản phẩm của bạn</h3>
+				<h2 class="text-center text-succes" >Sản phẩm của bạn</h2>
 					<table class="table table-success table-striped">
 					  <thead>
 					    <tr>

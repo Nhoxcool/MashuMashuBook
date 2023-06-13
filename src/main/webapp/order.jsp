@@ -16,10 +16,9 @@
 <%@include file="all_component/allCss.jsp"%>
 	<%@include file="all_component/Navbar.jsp"%>
 </head>
-<body>
-	<div class="container">
-	
-		<h3 class="text-center text-primary fs-2" style="margin-top: 5%">Dơn đặt hàng của bạn</h3>
+<body style="background-color: rgb(189,228,251)">
+	<div class="grid" style="background-color: white">
+		<h3 class="text-center text-primary" style="margin-top: 5%; font-size: 2.6rem">Đơn đặt hàng của bạn</h3>
 		<table class="table table-striped fs-2" style="margin-top: 2%">
 			<thead class="bg-info-subtle">
 				<tr>
@@ -51,6 +50,7 @@
 			%>
 		</table>
 	</div>
+	<div style="margin-top: 12%"></div>
 	<%@include file="all_component/footer.jsp"%>
 </body>
 </html>

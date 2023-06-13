@@ -1,9 +1,10 @@
 .Submit__btn {
-margin-left: 40%; 
-width: 20%; border: none; 
-background-color: var(--primary-color) ;
+margin-left: 35%; 
+width: 30%; 
+border: none; 
+background-color: #ef8134;
 color: var(--white-color);
-border-radius: 10px;
+border-radius: 15px;
 }
 
 .form-control {
@@ -11,5 +12,5 @@ border-radius: 10px;
 }
 
 .Submit__btn:hover {
-	background-color: #ec593c;
+	background-color: #ff9e50;
 }
