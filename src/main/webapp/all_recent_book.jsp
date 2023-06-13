@@ -13,6 +13,7 @@
 <meta charset="UTF-8">
 <title>Sách hiện có</title>
 <%@include file="all_component/allCss.jsp"%>
+<link rel="stylesheet" href="all_component/css/ViewBook.css">
 <style>
 </style>
 </head>
@@ -40,6 +41,12 @@
 	
 
 	<%@include file="all_component/Navbar.jsp"%>
+	
+	<div class="grid" style="background-color: #ffffff; height: 30px">
+		<p style="padding: 3px 18px; font-size: 1.6rem"><a href="index.jsp" class="path">Trang chủ </a> > 
+		<a href="all_recent_book.jsp" class="path"> Sách Đang Bán </a>	
+		</p>
+	</div>
 	
 	<div class="grid">
 		<img src="img/banner/books_banner.jpg" style="width: 100%">

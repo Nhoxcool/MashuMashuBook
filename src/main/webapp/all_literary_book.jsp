@@ -11,9 +11,16 @@
 <meta charset="UTF-8">
 <title>Sách văn học</title>
 <%@include file="all_component/allCss.jsp"%>
+<link rel="stylesheet" href="all_component/css/ViewBook.css">
 </head>
 <body style="background-color: #f4f2f0">
 	<%@include file="all_component/Navbar.jsp"%>
+	
+	<div class="grid" style="background-color: #ffffff; height: 30px">
+		<p style="padding: 3px 18px; font-size: 1.6rem"><a href="index.jsp" class="path">Trang chủ </a> > 
+		<a href="all_literary_book.jsp" class="path"> Sách văn học </a>	
+		</p>
+	</div>
 	
 	<div class="grid">
 		<img src="img/banner/sach-van-hoc-27082018.jpg" style="width: 100%">

@@ -145,11 +145,17 @@
 				</div>
 				
 				<c:if test = "${not empty user }">
-					<a href="checkout.jsp">
-						<div class="header__cart">
-							<i class="header__cart-icon fa-solid fa-cart-shopping"></i>
-						</div>
-					</a>
+							<%
+							if (!us.getName().equals("Admin")) {
+							%>	
+								<a href="checkout.jsp">
+									<div class="header__cart">
+										<i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+									</div>
+								</a>
+							<%
+							} 
+							%> 
 				</c:if>
 			</div>
 
