@@ -23,6 +23,7 @@
   <a href="home.jsp" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
   <a href="add_books.jsp"class="icon-a"><i class="fa-solid fa-book-medical icons"></i> &nbsp;&nbsp;Thêm Sách</a>
   <a href="AllBook.jsp"class="icon-a"><i class="fa-solid fa-book icons"></i> &nbsp;&nbsp;Tất cả sách</a>
+  <a href="AllOldBook.jsp"class="icon-a"><i class="fa-solid fa-book-bookmark icons"></i> &nbsp;&nbsp;Sách Cũ</a>
   <a href="orders.jsp"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Đơn Hàng</a>
   <a href="User.jsp"class="icon-a"><i class="fa-solid fa-user icons"></i> &nbsp;&nbsp;Người Dùng</a>
   <a href="../logout"class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i> &nbsp;&nbsp;Đăng xuất</a>
@@ -67,21 +68,30 @@
 				List<BookDtls> list=dao.getAllBooks();
 				int i = 0;
 				for(BookDtls b : list){
+					if(!b.getBookCategory().equals("Cũ"))
+					{
 					i++;
+					}
 				%>
+					<% 
+					if(!b.getBookCategory().equals("Cũ")){
+					%>
 					<tr>
-					<th scope="row"><%=i%></th>
-					<td><img src="../book/<%=b.getPhotoName() %>" style="width: 50px; hegiht: 50px;"></td>
-					<td><%=b.getBookName()%></td>
-					<td><%=b.getAuthor()%></td>
-					<td><%=b.getPrice()%></td>
-					<td><%=b.getBookCategory()%></td>
-					<td><%=b.getStatus()%></td>
-					<td>
-					<a href="edit_books.jsp?id=<%=b.getBookID()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
-					<a href="../delete?id=<%=b.getBookID() %>" class="btn btn-sm btn-danger">Xóa</a>
-					</td>
-				</tr>
+						<th scope="row"><%=i%></th>
+						<td><img src="../book/<%=b.getPhotoName() %>" style="width: 50px; hegiht: 50px;"></td>
+						<td><%=b.getBookName()%></td>
+						<td><%=b.getAuthor()%></td>
+						<td><%=b.getPrice()%></td>
+						<td><%=b.getBookCategory()%></td>
+						<td><%=b.getStatus()%></td>
+						<td>
+						<a href="edit_books.jsp?id=<%=b.getBookID()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
+						<a href="../delete?id=<%=b.getBookID() %>" class="btn btn-sm btn-danger">Xóa</a>
+						</td>
+					</tr>
+					<%
+					}%>
+
 				<%
 				}
 				%>

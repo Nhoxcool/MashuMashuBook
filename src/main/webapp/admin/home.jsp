@@ -27,6 +27,7 @@
 	  <a href="home.jsp" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
 	  <a href="add_books.jsp"class="icon-a"><i class="fa-solid fa-book-medical icons"></i> &nbsp;&nbsp;Thêm Sách</a>
 	  <a href="AllBook.jsp"class="icon-a"><i class="fa-solid fa-book icons"></i> &nbsp;&nbsp;Tất cả sách</a>
+	  <a href="AllOldBook.jsp"class="icon-a"><i class="fa-solid fa-book-bookmark icons"></i> &nbsp;&nbsp;Sách Cũ</a>
 	  <a href="orders.jsp"class="icon-a"><i class="fa fa-shopping-bag icons"></i> &nbsp;&nbsp;Đơn Hàng</a>
 	  <a href="User.jsp"class="icon-a"><i class="fa-solid fa-user icons"></i> &nbsp;&nbsp;Người Dùng</a>
 	  <a href="../logout"class="icon-a"><i class="fa-solid fa-right-from-bracket icons"></i> &nbsp;&nbsp;Đăng xuất</a>
@@ -91,13 +92,13 @@
 	    <div class="col-div-8">
 	      <div class="box-8">
 	      <div class="content-box">
-	        <p>Top Sách bán chạy <span>Xem tất cả</span></p>
+	        <p>Top Sách bán chạy </p>
 	        <br/>
 	        <table>
 					<tr>
-					<th>BookName</th>
-					<th>Author</th>
-					<th>Price</th>
+					<th>Tên Sách</th>
+					<th>Tác Giả</th>
+					<th>Giá</th>
 					</tr>
 					<%
 					BookOrderImpl dao4 = new BookOrderImpl(DBConnect.getConn());
@@ -120,7 +121,7 @@
 	    <div class="col-div-4">
 	      <div class="box-4">
 	      <div class="content-box">
-	        <p>Số lượng bán hiện tại <span>Xem tất cả</span></p>
+	        <p>Số lượng bán hiện tại </p>
 	
 	        <div class="circle-wrap">
 	      <div class="circle">
