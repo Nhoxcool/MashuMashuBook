@@ -1,4 +1,5 @@
 <%@page import="com.entity.BookDtls"%>
+<%@page import="java.util.List"%>
 <%@page import="com.DB.DBConnect"%>
 <%@page import="com.DAO.BookDAOImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -9,15 +10,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Chỉnh sửa sách</title>
+<title>Tất cả sách cũ</title>
 <link>
 <%@include file="allCss.jsp"%>
-<link rel="stylesheet" href="Adminhome.css?version=1">
+<link rel="stylesheet" href="css/Adminhome2.css?version=1">
 <script src="https://kit.fontawesome.com/852351e3ff.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-	<div id="mySidenav" class="sidenav">
+<div id="mySidenav" class="sidenav">
 	<p class="logo"><a href="../index.jsp"><img src="adminimg/logo-removebg-preview.png" alt=" "></a>
   <a href="home.jsp" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
   <a href="add_books.jsp"class="icon-a"><i class="fa-solid fa-book-medical icons"></i> &nbsp;&nbsp;Thêm Sách</a>
@@ -31,62 +32,64 @@
 
 	<div class="head">
 		<div class="col-div-6">
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav"  >&#9776; Chỉnh Sửa Sách</span>
-<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav2"  >&#9776; Chỉnh Sửa Sách</span>
+<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav"  >&#9776; Tất cả Sách Cũ</span>
+<span style="font-size:30px;cursor:pointer; color: #db4633;" class="nav2"  >&#9776; Tất cả Sách Cũ</span>
 </div>
 	
 	<div class="clearfix"></div>
 </div>
-	<div class="container">'
-		<div class="row">
-			<div class="col-md-4 offset-md-4">
-				<div class="card">
-					<div class="card-body">
-						<h4 class ="text-center">Edit Books</h4>
-							
-							<%
-							int id =Integer.parseInt(request.getParameter("id"));
-							BookDAOImpl dao =new BookDAOImpl(DBConnect.getConn());
-							BookDtls b= dao.getBookById(id);						
-							%>					
-						<form action= "../edditbooks" method="post" enctype="multipart/form-data">
-							<input type="hidden" name="id" value="<%=b.getBookID() %>">							
-							<div class="form-group">
-								<label for="exampleInputBookname">Tên Sách*</label>
-								<input name="bname" type="text" class="form-control" id="exampleInpuBookname" value="<%=b.getBookName() %>">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputAuthor">Tên Tác Giả</label>
-								<input name="author" type="text" class="form-control" id="exampleInputAuthor" value="<%=b.getAuthor() %>">
-							</div>
-							<div class="form-group">
-								<label for="exampleInputPrice">Price*</label>
-								<input name="price" type="Number" class="form-control" id="exampleInputPrice" value="<%=b.getPrice() %>">
-							</div>						
-							<div class="form-group">
-								<label for = "inputState">Trạng thái sách</label>
-								<select id="inputState" name="bstatus" class="form-control">
-								<% 
-								if("Active".equals(b.getStatus())){
-								%>
-								<option value="Active">Đang hoạt động</option>
-								<option value="Inactive">Không hoạt động</option>
-								<%	
-								}else{%>
-								<option value="Inactive">Không hoạt động</option>
-								<option value="Active">Đang hoạt động</option>
-								<%
-								}
-								%>
-								</select>
-							</div>
-							<button type="submit" class="btn btn-primary" style="margin-left: 40%">Thay Đổi</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+
+		<c:if test="${not empty succMsg }">
+			<p class="text-center text-success">${succMsg}</p>
+			<c:remove var="succMsg" scope="session" />
+		</c:if>
+
+		<c:if test="${not empty failedMsg }">
+			<p class="text-center text-danger">${failedMsg}</p>
+			<c:remove var="failedMsg" scope="session" />
+		</c:if>
+		<table class="table table-striped"> 
+			  <thead class="bg-info-subtle">
+			    <tr>
+			      <th scope="col">id</th>
+			      <th scope="col">Hình ảnh</th>
+			      <th scope="col">Tên Sách</th>
+			      <th scope="col">Tên tác giả</th>
+			      <th scope="col">giá</th>
+			      <th scope="col">thể loại</th>
+			      <th scope="col">trạng thái</th>
+			      <th scope="col">Người bán</th>
+			      <th scope="col">Điều chỉnh</th>
+			    </tr>
+			  </thead>			  
+			  <tbody class="table-group-divider">
+				<%
+				BookDAOImpl dao= new BookDAOImpl(DBConnect.getConn());
+				List<BookDtls> list=dao.getAllOldBooks();
+				int i = 0;
+				for(BookDtls b : list){
+					i++;
+				%>
+					<tr>
+						<th scope="row"><%=i%></th>
+						<td><img src="../book/<%=b.getPhotoName() %>" style="width: 50px; hegiht: 50px;"></td>
+						<td><%=b.getBookName()%></td>
+						<td><%=b.getAuthor()%></td>
+						<td><%=b.getPrice()%></td>
+						<td><%=b.getBookCategory()%></td>
+						<td><%=b.getStatus()%></td>
+						<td><%=b.getEmail()%></td>
+						<td>
+						<a href="edit_books.jsp?id=<%=b.getBookID()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
+						<a href="../delete?id=<%=b.getBookID() %>" class="btn btn-sm btn-danger">Xóa</a>
+						</td>
+					</tr>
+				<%
+				}
+				%>
+			  </tbody>
+			</table>
 
 
  
