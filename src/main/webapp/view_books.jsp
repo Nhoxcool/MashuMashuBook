@@ -107,6 +107,124 @@
 		</div>
 	</div>
 	
+	<!-- Sách gợi ý theo thể loại -->
+	<div class="grid" style="margin-top: 3%">
+		<div class="container">
+			<div class="title">
+				<h2>Sách Cùng thể loại</h2>
+			</div>
+			<div class="row">
+				<% 
+				BookDAOImpl dao2 = new BookDAOImpl(DBConnect.getConn());
+				List<BookDtls> list = dao2.getBookByCategory(b.getBookCategory(),b.getBookName());
+				int i=0;
+				for(BookDtls b2: list) {
+					i++;
+				}
+				for(BookDtls b2: list) {
+				%>
+				<%
+				if (i!=0) {
+				%>	
+				<div class="col-md-3 book__product">
+					<div class="card crd-ho">
+						<div class="card-body">
+						<a href="view_books.jsp?bid=<%=b2.getBookID() %>" style="text-decoration: none; color: #333;">
+							<div class="text-center">
+								<img src="book/<%=b2.getPhotoName() %>" alt=""
+									style="width: 80%; height: 50%" class="img-thumblin">
+							</div>
+							<%
+							if (b.getBookCategory().equals("Cũ")) {
+							%>	
+								<p style="font-size: 1.6rem"><%=b2.getBookName() %> (Cũ)
+								<p>	
+								<p style="font-size: 1.6rem">Người bán: <%=b2.getEmail() %>
+								<p>	
+							<%
+							} else {
+							%>
+								<p style="font-size: 1.6rem"><%=b2.getBookName() %>
+								<p>
+							<%
+							}
+							%> 
+							<p style="font-size: 1.6rem"><%=b2.getAuthor() %>
+							<p>
+							<p style="font-size: 1.6rem; color: #c92127"><%=b2.getPrice() %>đ</p>
+							<div class="text-center">
+							<%
+							if (us == null) {
+							%>	
+								<a href="login.jsp">
+									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+								</a> 
+							<%
+							} else {
+							%> 
+								<%
+								if (!us.getName().equals("Admin")) {
+								%>	
+									<a href="cart?bid=<%=b2.getBookID() %>&&uid=<%=us.getId() %>">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								} else {
+								%>
+									<a href="">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								}
+								%> 
+							<% 
+							}
+							%>	
+								<a href="view_books.jsp?bid=<%=b2.getBookID() %>">
+									<button class="Detail__btn">Xem chi tiết</button>
+								</a>
+							</div>
+						</a>
+						</div>
+					</div>
+				</div>
+				<%
+				} 
+				%> 
+				<%
+				}
+				%>
+			</div>
+			<%
+			if (b.getBookCategory().equals("Sách văn học")) {
+			%>	
+			<div class="text-center mt1">
+				<a href="all_literary_book.jsp"><button class="Viewall__btn">Xem Thêm</button></a>
+			</div>		
+			<%
+			} else if (b.getBookCategory().equals("Sách giáo khoa")) {
+			%>
+			<div class="text-center mt1">
+				<a href="all_SGK_book.jsp"><button class="Viewall__btn">Xem Thêm</button></a>
+			</div>		
+			<%
+			}else if (b.getBookCategory().equals("Cũ")) {
+			%>
+			<div class="text-center mt1">
+			<a href="all_SGK_book.jsp"><button class="Viewall__btn">Xem Thêm</button></a>
+			</div>		
+			<%
+			}else if (b.getBookCategory().equals("Sách nước ngoài")) {
+			%>
+			<div class="text-center mt1">
+			<a href="all_foreign_book.jsp"><button class="Viewall__btn">Xem Thêm</button></a>
+			</div>		
+			<%
+			}
+			%> 
+
+		</div>
+	</div>
 	
 	<%@include file="all_component/footer.jsp"%>
 </body>

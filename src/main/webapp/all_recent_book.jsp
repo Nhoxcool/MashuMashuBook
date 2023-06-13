@@ -50,7 +50,7 @@
 	
 	<div class="grid">
 		<img src="img/banner/books_banner.jpg" style="width: 100%">
-		<h1>Sách Đang Bán</h1>
+		<h1 style="margin-top: 2%">Sách Đang Bán</h1>
 		<div class="container-fluid">
 			<div class="row">		
 			<%

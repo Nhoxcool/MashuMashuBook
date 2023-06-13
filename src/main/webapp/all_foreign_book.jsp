@@ -22,8 +22,8 @@
 		</p>
 	</div>
 	<div class="grid">
-		<img src="img/banner/sach-van-hoc-27082018.jpg" style="width: 100%">
-		<h1>Sách Nước Ngoài</h1>
+		<img src="img/banner/Sách nước ngoài.png" style="width: 100%; height: 350px">
+		<h1 style="margin-top: 2%">Sách Nước Ngoài</h1>
 		<div class="container-fluid">
 			<div class="row">		
 			<%
