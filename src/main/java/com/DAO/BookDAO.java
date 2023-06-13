@@ -38,6 +38,10 @@ public interface BookDAO {
 	
 	public List<BookDtls> getBookByCategory(String Category, String bookname);
 	
+	public List<BookDtls> getBookByAuthor(String author, String bookname);
+	
+	public List<BookDtls> getBookByOldSameName(String bookname);
+	
 	public List<BookDtls> getBookByOld (String email,String Category);
 	
 	public boolean DeleteOldBook(String email,String Category, int id);

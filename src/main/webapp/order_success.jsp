@@ -17,7 +17,7 @@
 		<p style="font-size: 3.0rem">Đơn đặt hàng của bạn đã thành công</p>
 		<p style="font-size: 3.0rem">Trong Vòng từ 2-3 ngày sẽ được gửi đến địa chỉ của bạn</p>
 		<a href="index.jsp" class="btn btn-primary btn-lg mt-3">Trang Chủ</a>
-		<a href="user_order.jsp" class="btn btn-danger btn-lg mt-3 ">Xem đơn đặt hàng của bạn</a>
+		<a href="order.jsp" class="btn btn-danger btn-lg mt-3 ">Xem đơn đặt hàng của bạn</a>
 	</div>
 <%@include file="all_component/footer.jsp"%>
 </body>
