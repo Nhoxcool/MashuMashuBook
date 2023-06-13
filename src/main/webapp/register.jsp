@@ -15,16 +15,15 @@
 						<div class="row">
 							<div class="register__form" style="width: 40%; font-size:2rem; border-radius: 10px ;margin: 5% auto; background-color: var(--white-color)">
 							<h2 style="text-align: center">Đăng ký</h2>
+							<c:if test="${not empty succMsg }">
+								<p class="text-center text-success">${succMsg}</p>
+								<c:remove var="succMsg" scope="session"/>
+							</c:if>
 							
-								<c:if test="${not empty succMsg }">
-									<p class="text-center text-success">${succMsg}</p>
-									<c:remove var="succMsg" scope="session"/>
-								</c:if>
-								
-								<c:if test="${not empty failedMsg }">
-									<p class="text-center text-danger">${failedMsg}</p>
-									<c:remove var="failedMsg" scope="session"/>
-								</c:if>								
+							<c:if test="${not empty failedMsg }">
+								<h5 class="text-center text-danger">${failedMsg}</h5>
+								<c:remove var="failed" scope="session"/>
+							</c:if>							
 								
 								<form action="register" method="post"> <!-- Setup method Post cho form -->
 								  <div class="mb-1">
