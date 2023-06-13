@@ -130,6 +130,29 @@ public class BookOrderImpl implements BookOrderDAO {
 		return list;
 	}
 		
-	
+	public List<Book_Order> getTopBookOrder() {
+		List<Book_Order> list=new ArrayList<Book_Order>();
+		
+		Book_Order order = null;	
+		try {
+			String sql = "select book_name,author,price,count(book_name) from book_order group by book_name,author,price order by count(book_name) DESC limit 0,4;";
+			PreparedStatement ps= conn.prepareStatement(sql);			
+			ResultSet rs = ps.executeQuery();
+			while(rs.next())
+			{
+				order= new Book_Order();
+				order.setBookName(rs.getString(1));
+				order.setAuthor(rs.getString(2));
+				order.setPrice(rs.getString(3));
+				list.add(order);
+			}
+			
+		} catch (Exception e) {
+
+		}
+		
+		return list;
+	}
+
 	
 }

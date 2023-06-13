@@ -22,11 +22,12 @@ body{
 .logo span{
 	color: #f7403b;
 }
+
+
 .sidenav {
-  height: 150%;
+  height: 100vh;
   width: 300px;
-  position: fixed;
-  z-index: 1;
+  z-index: 10000;
   top: 0;
   left: 0;
   background-color: #B0E0E6;
@@ -45,8 +46,9 @@ body{
   color: #98FB98;
   background-color: #FF7F50;
 }
+
 .sidenav{
-  position: absolute;
+  position:fixed;
   top: 0;
   right: 25px;
   font-size: 36px;

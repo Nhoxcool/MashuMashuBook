@@ -104,9 +104,21 @@
 							<%
 							} else {
 							%> 
-								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
-								</a> 
+								<%
+								if (!us.getName().equals("Admin")) {
+								%>	
+									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								} else {
+								%>
+									<a href="">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								}
+								%> 
 							<% 
 							}
 							%>	
@@ -165,9 +177,21 @@
 							<%
 							} else {
 							%> 
-								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
-								</a> 
+								<%
+								if (!us.getName().equals("Admin")) {
+								%>	
+									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								} else {
+								%>
+									<a href="">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								}
+								%> 
 							<% 
 							}
 							%>	
@@ -225,9 +249,21 @@
 							<%
 							} else {
 							%> 
-								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
-								</a> 
+								<%
+								if (!us.getName().equals("Admin")) {
+								%>	
+									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								} else {
+								%>
+									<a href="">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								}
+								%> 
 							<% 
 							}
 							%>	
@@ -286,9 +322,21 @@
 							<%
 							} else {
 							%> 
-								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
-								</a> 
+								<%
+								if (!us.getName().equals("Admin")) {
+								%>	
+									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								} else {
+								%>
+									<a href="">
+										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								}
+								%> 
 							<% 
 							}
 							%>	

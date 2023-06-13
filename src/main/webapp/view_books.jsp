@@ -40,6 +40,10 @@
 		%>
 			<a href="all_literary_book.jsp" class="path"> Sách Cũ </a> >
 		<% 
+		}else if (b.getBookCategory().equals("Sách nước ngoài")){	
+		%>
+			<a href="all_foreign_book.jsp" class="path"> Sách nước ngoài </a> >
+		<%
 		}
 		%>
 			<a href="view_books.jsp?bid=<%=b.getBookID() %>"  class="path"><%=b.getBookName() %></a>
