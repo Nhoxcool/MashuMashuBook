@@ -74,7 +74,7 @@
 	<div class="grid" style="margin-top: 3%">
 		<div class="container">
 			<div class="title">
-				<h2>Sách Đang Bán</h2>
+				<h2 class="title__text">Sách Đang Bán</h2>
 			</div>
 			<div class="row">
 				<% 
@@ -99,7 +99,7 @@
 							if (us == null) {
 							%>	
 								<a href="login.jsp">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
@@ -108,13 +108,13 @@
 								if (!us.getName().equals("Admin")) {
 								%>	
 									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								} else {
 								%>
 									<a href="">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								}
@@ -122,9 +122,6 @@
 							<% 
 							}
 							%>	
-								<a href="view_books.jsp?bid=<%=b.getBookID() %>">
-									<button class="Detail__btn">Xem chi tiết</button>
-								</a>
 
 							</div>
 							</a>
@@ -146,7 +143,7 @@
 	<div class="grid" style="margin-top: 3%">
 		<div class="container">
 			<div class="title">
-				<h2>Sách Giáo Khoa</h2>
+				<h2 class="title__text">Sách Giáo Khoa</h2>
 			</div>
 			<div class="row">
 				<% 
@@ -172,7 +169,7 @@
 							if (us == null) {
 							%>	
 								<a href="login.jsp">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
@@ -181,13 +178,13 @@
 								if (!us.getName().equals("Admin")) {
 								%>	
 									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								} else {
 								%>
 									<a href="">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								}
@@ -195,9 +192,6 @@
 							<% 
 							}
 							%>	
-								<a href="view_books.jsp?bid=<%=b.getBookID() %>">
-									<button class="Detail__btn">Xem chi tiết</button>
-								</a>
 							</div>
 							</a>
 						</div>
@@ -218,7 +212,7 @@
 		<div class="grid" style="margin-top: 3%">
 		<div class="container">
 			<div class="title">
-				<h2>Sách Văn học</h2>
+				<h2 class="title__text">Sách Văn học</h2>
 			</div>
 			<div class="row">
 				<% 
@@ -244,7 +238,7 @@
 							if (us == null) {
 							%>	
 								<a href="login.jsp">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
@@ -253,13 +247,13 @@
 								if (!us.getName().equals("Admin")) {
 								%>	
 									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								} else {
 								%>
 									<a href="">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								}
@@ -267,9 +261,6 @@
 							<% 
 							}
 							%>	
-								<a href="view_books.jsp?bid=<%=b.getBookID() %>">
-									<button class="Detail__btn">Xem chi tiết</button>
-								</a>
 							</div>
 						</a>
 						</div>
@@ -291,7 +282,7 @@
 		<div class="grid" style="margin-top: 3%">
 		<div class="container">
 			<div class="title">
-				<h2>Sách Nước Ngoài</h2>
+				<h2 class="title__text">Sách Nước Ngoài</h2>
 			</div>
 			<div class="row">
 				<% 
@@ -317,7 +308,7 @@
 							if (us == null) {
 							%>	
 								<a href="login.jsp">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
@@ -326,13 +317,13 @@
 								if (!us.getName().equals("Admin")) {
 								%>	
 									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								} else {
 								%>
 									<a href="">
-										<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								}
@@ -340,9 +331,6 @@
 							<% 
 							}
 							%>	
-								<a href="view_books.jsp?bid=<%=b.getBookID() %>">
-									<button class="Detail__btn">Xem chi tiết</button>
-								</a>
 							</div>
 						</a>
 						</div>
@@ -363,7 +351,7 @@
 	<div class="grid" style="margin-top: 3%">
 		<div class="container">
 			<div class="title">
-				<h2>Sách Cũ</h2>
+				<h2 class="title__text">Sách Cũ</h2>
 			</div>
 			<div class="row">
 				<% 
@@ -389,21 +377,18 @@
 							if (us == null) {
 							%>	
 								<a href="login.jsp">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
 							%> 
 								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<% 
 							}
 							%>	
 								
-								<a href="view_books.jsp?bid=<%=b.getBookID() %>">
-									<button class="Detail__btn">Xem chi tiết</button>
-								</a>
 							</div>
 							</a>
 						</div>

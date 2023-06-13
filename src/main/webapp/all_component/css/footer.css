@@ -46,7 +46,7 @@ html {
 .footer {
 	margin-top:5%;
 	padding-top: 16px;
-	border-top: 4px solid var(--primary-color);
+	border-top: 4px solid rgb(78,187,235);
 }
 
 .footer__heading {
