@@ -22,7 +22,7 @@
 		</p>
 	</div>
 	<div class="grid">
-		<img src="img/banner/Sách nước ngoài.png" style="width: 100%; height: 350px">
+		<img src="img/banner/Best-books-of-202-foreign-policy.png" style="width: 100%; height: 400px">
 		<h1 style="margin-top: 2%">Sách Nước Ngoài</h1>
 		<div class="container-fluid">
 			<div class="row">		

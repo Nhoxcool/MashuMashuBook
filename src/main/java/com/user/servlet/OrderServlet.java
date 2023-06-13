@@ -92,8 +92,7 @@ public class OrderServlet extends HttpServlet {
 						boolean f2 = dao.deleteAllBook(id);
 						if(f2)
 						{
-							session.setAttribute("failedMsg", "Bạn đặt hàng không thành công");
-							resp.sendRedirect("checkout.jsp");
+							resp.sendRedirect("order_success.jsp");
 						}else {
 							resp.sendRedirect("order_success.jsp");
 						}
