@@ -15,6 +15,24 @@
 </head>
 <body style="background-color: #f4f2f0">
 	<%@include file="all_component/Navbar.jsp"%>
+		<c:if test= "${not empty addCart }">
+	
+		<div id="toast">${addCart}</div>
+
+		<script type="text/javascript">
+				showToast();
+				function showToast(content)
+				{
+				    $('#toast').addClass("display");
+				    $('#toast').html(content);
+				    setTimeout(()=>{
+				        $("#toast").removeClass("display");
+				    },2000)
+				}	
+		</script>
+		
+		<c:remove var="addCart" scope="session"/>
+	</c:if>
 	
 	<div class="grid" style="background-color: #ffffff; height: 30px">
 		<p style="padding: 3px 18px; font-size: 1.6rem"><a href="index.jsp" class="path">Trang chủ </a> > 
@@ -55,7 +73,7 @@
 							<%
 							} else {
 							%> 
-								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+								<a href="allliterarybookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
 									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<% 

@@ -16,8 +16,8 @@ import com.entity.BookDtls;
 import com.entity.Cart;
 import com.mysql.cj.Session;
 
-@WebServlet("/cart")
-public class CartServlet extends HttpServlet{
+@WebServlet("/Buy")
+public class BuyServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -44,11 +44,9 @@ public class CartServlet extends HttpServlet{
 			
 			if(f)
 			{
-				session.setAttribute("addCart", "Sách đã thêm vào giỏ hàng thành công");
-				resp.sendRedirect("view_books.jsp"+"?"+"bid="+bid);
+				resp.sendRedirect("checkout.jsp");
 			}else {
-				session.setAttribute("addCart", "Sách đã thêm vào giỏ hàng thất bại");
-				resp.sendRedirect("view_books.jsp"+"?"+"bid="+bid);
+				resp.sendRedirect("checkout.jsp");
 			}
 			
 		} catch (Exception e) {

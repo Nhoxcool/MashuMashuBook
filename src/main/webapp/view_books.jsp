@@ -20,6 +20,25 @@
 <body style="background-color: #f4f2f0"	>
 	<%@include file="all_component/Navbar.jsp"%>
 	
+		<c:if test= "${not empty addCart }">
+	
+		<div id="toast">${addCart}</div>
+
+		<script type="text/javascript">
+				showToast();
+				function showToast(content)
+				{
+				    $('#toast').addClass("display");
+				    $('#toast').html(content);
+				    setTimeout(()=>{
+				        $("#toast").removeClass("display");
+				    },2000)
+				}	
+		</script>
+		
+		<c:remove var="addCart" scope="session"/>
+	</c:if>
+	
 	<%
 	int bid=Integer.parseInt(request.getParameter("bid"));
 	BookDAOImpl dao = new BookDAOImpl(DBConnect.getConn());
@@ -84,14 +103,20 @@
 				<%
 				if (us == null) {
 				%>
-				<a href="login.jsp">
-					<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
-				</a>
+					<a href="login.jsp">
+						<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+					</a>
+					<a href="login.jsp">
+						<button class="BuyBtn">Mua Ngay</button>
+					</a>
 				<%
 				} else {
 				%>
 				<a href="cart?bid=<%=b.getBookID()%>&&uid=<%=us.getId()%>">
 					<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+				</a>
+				<a href="Buy?bid=<%=b.getBookID()%>&&uid=<%=us.getId()%>">
+					<button class="BuyBtn">Mua Ngay</button>
 				</a>
 				<%
 				}
@@ -471,6 +496,44 @@
 		%>
 	</div>	
 	<%
+	}else {
+		%>
+		<div class="grid" style="margin-top: 5%">
+			<div class="comment">
+			<h2 style="padding: 10px 10px">Bình luận</h2>
+					</div>
+					<div class="pb-cmnt-container">
+					    <div class="row">
+					        <div class="col-md-12 col-md-offset-3">
+					            <div class="panel panel-info">
+					                <div class="panel-body">
+					                <form action="login.jsp" method="post" class="form-inline">
+					                    <textarea placeholder="Viết bình luận của bạn tại đây" class="pb-cmnt-textarea" name="commenttext"></textarea>
+					                   	<button class="comment_button" type="submit">Đăng bài</button>
+					                 </form>
+					                </div>
+					          </div>
+					 </div>
+					</div>
+			</div>
+		</div>
+		<div class="grid" style="margin-top: 2%">
+			<% 
+			CommentDAOImpl dao5 = new CommentDAOImpl(DBConnect.getConn());
+			List<Comment> list4 = dao5.getCommentByBookId(b.getBookID());
+			for(Comment c: list4) {
+			%>
+					<div class="Comment__content" style="width: 100%; background-color: white; padding: 10px 10px 15px 10px">
+						<p style="font-size: 2rem; color: #395898"><%=c.getEmail() %><p>
+						<div class="Comment__content--text">
+							<P><%=c.getComment() %></P>
+						</div>
+					</div>
+			<%
+			}
+			%>
+		</div>	
+		<%
 	}
 	%>
 		<%@include file="all_component/footer.jsp"%>

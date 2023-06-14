@@ -126,7 +126,7 @@
 								<a href="all_foreign_book.jsp"style="text-decoration: none; color:#333">
 									<li class="main-directory-item">Sách nước ngoài</li>
 								</a>
-								<a style="text-decoration: none; color:#333">
+								<a href="all_old_book.jsp"style="text-decoration: none; color:#333">
 									<li class="main-directory-item">Sách Cũ</li>
 								</a>
 							</ul>
