@@ -1,3 +1,5 @@
+<%@page import="com.DAO.CommentDAOImpl"%>
+<%@page import="com.entity.Comment"%>
 <%@page import="com.entity.User"%>
 <%@page import="com.entity.BookDtls"%>
 <%@page import="java.util.List"%>
@@ -345,7 +347,7 @@
 				<div class="grid" style="margin-top: 3%">
 				<div class="container">
 				<div class="title">
-					<h2 class="title__text">Sách Cũ cùng tên</h2>
+					<h2 class="title__text">Sách Cũ</h2>
 				</div>
 				<div class="row">
 				<%
@@ -367,9 +369,9 @@
 										style="width: 80%; height: 50%" class="img-thumblin">
 								</div>
 								<%
-								if (b.getBookCategory().equals("Cũ")) {
+								if (b2.getBookCategory().equals("Cũ")) {
 								%>	
-									<p style="font-size: 1.6rem"><%=b2.getBookName() %> (Cũ)
+									<p style="font-size: 1.6rem"><%=b2.getBookName() %>(Cũ)
 									<p>	
 									<p style="font-size: 1.6rem">Người bán: <%=b2.getEmail() %>
 									<p>	
@@ -430,11 +432,47 @@
 			}
 	        %>
 	<!-- End of Sách cũ cùng loại -->
+	<%
+	if (us != null) {
+	%>
 	<div class="grid" style="margin-top: 5%">
 		<div class="comment">
-			<h2>Bình luận</h2>
+		<h2 style="padding: 10px 10px">Bình luận</h2>
+				</div>
+				<div class="pb-cmnt-container">
+				    <div class="row">
+				        <div class="col-md-12 col-md-offset-3">
+				            <div class="panel panel-info">
+				                <div class="panel-body">
+				                <form action="comment?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>&&email=<%=us.getEmail() %>" method="post" class="form-inline">
+				                    <textarea placeholder="Viết bình luận của bạn tại đây" class="pb-cmnt-textarea" name="commenttext"></textarea>
+				                   	<button class="comment_button" type="submit">Đăng bài</button>
+				                 </form>
+				                </div>
+				          </div>
+				 </div>
+				</div>
 		</div>
 	</div>
-	<%@include file="all_component/footer.jsp"%>
-</body>
+	<div class="grid" style="margin-top: 2%">
+		<% 
+		CommentDAOImpl dao5 = new CommentDAOImpl(DBConnect.getConn());
+		List<Comment> list4 = dao5.getCommentByBookId(b.getBookID());
+		for(Comment c: list4) {
+		%>
+				<div class="Comment__content" style="width: 100%; background-color: white; padding: 10px 10px 15px 10px">
+					<p style="font-size: 2rem; color: #395898"><%=c.getEmail() %><p>
+					<div class="Comment__content--text">
+						<P><%=c.getComment() %></P>
+					</div>
+				</div>
+		<%
+		}
+		%>
+	</div>	
+	<%
+	}
+	%>
+		<%@include file="all_component/footer.jsp"%>
+</body>	
 </html>

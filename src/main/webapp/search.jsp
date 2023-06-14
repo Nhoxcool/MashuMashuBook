@@ -35,7 +35,7 @@
 			for (BookDtls b: list)
 			{%>
 				<div class="col-md-3" style="margin-top: 5%">
-					<div class="card crd-ho">
+					<div class="card crd-ho book__product">
 						<div class="card-body">
 						<a href="view_books.jsp?bid=<%=b.getBookID()%>" style="text-decoration: none; color: #333;">
 							<div class="text-center">
@@ -59,23 +59,19 @@
 							<div class="text-center">
 							<%
 							if (us == null) {
-							%>	c
+							%>
 								<a href="login.jsp">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
 							%> 
 								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-									<button class="Addtocart__btn">Thêm vào giỏ hàng</button>
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<% 
 							}
 							%>	
-								
-								<a href="view_books.jsp?bid=<%=b.getBookID() %>">
-									<button class="Detail__btn">Xem chi tiết</button>
-								</a>
 							</div>
 						</a>
 						</div>
