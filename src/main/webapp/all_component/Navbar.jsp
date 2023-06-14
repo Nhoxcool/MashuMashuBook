@@ -1,4 +1,6 @@
 
+<%@page import="com.entity.Cart"%>
+<%@page import="com.DAO.CartDAOImpl"%>
 <%@page import="com.entity.User"%>
 <%@page import="com.entity.BookDtls"%>
 <%@page import="java.util.List"%>
@@ -147,11 +149,37 @@
 							<%
 							if (!us.getName().equals("Admin")) {
 							%>	
-								<a href="checkout.jsp">
-									<div class="header__cart">
-										<i class="header__cart-icon fa-solid fa-cart-shopping"></i>
-									</div>
-								</a>
+							<%
+					 		CartDAOImpl daonavbar = new CartDAOImpl(DBConnect.getConn());
+					  		List<Cart> listnavbar= daonavbar.getBookByUser(us.getId());
+					 		int i = 0;
+					  		for(Cart c: listnavbar)
+					  		{				  
+					      		i=i+1;
+					  		}
+					  		%>
+					  			<%
+								if (i != 0) {
+								%>	
+									<a href="checkout.jsp">
+										<div class="header__cart">
+											<i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+											<div class="number__cart">
+												<p style="color: white; font-size: 1.3rem; font-weight: bold"><%=i %></p>
+											</div>
+										</div>
+									</a>
+								<%
+								}else {
+						  		%>	
+						  			<a href="checkout.jsp">
+										<div class="header__cart">
+											<i class="header__cart-icon fa-solid fa-cart-shopping"></i>
+										</div>
+									</a>
+						  		<% 
+						  		}
+						  		%>
 							<%
 							} 
 							%> 
