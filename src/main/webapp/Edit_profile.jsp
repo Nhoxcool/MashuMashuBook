@@ -36,11 +36,11 @@
 								    <input type="email" class="form-control form-control-lg" id="exampleInputEmail1"  required="required" name="email" value="${user.email}">
 								  </div >
 								  <div class="mb-3">
-									<label for="exampleInputEmail1" class="form-label form-control-lg" style="font-size: 2rem">mật khẩu cũ</label>
+									<label for="exampleInputEmail1" class="form-label form-control-lg" style="font-size: 2rem">Mật khẩu cũ</label>
 								    <input type="password" class="form-control form-control-lg" id="exampleInputEmail1" required="required" name="password">
 								  </div>	
 								  <div class="mb-3">
-								    <label for="exampleInputPassword1" class="form-label form-control-lg" style="font-size: 2rem">mật khẩu mới</label>
+								    <label for="exampleInputPassword1" class="form-label form-control-lg" style="font-size: 2rem">Mật khẩu mới</label>
 								    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" required="required" name="password2">
 								  </div>							
 							<button type="submit" class="ChangeACCButton">Sửa</button>

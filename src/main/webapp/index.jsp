@@ -20,6 +20,24 @@
 	<div id="top">
 	</div>
 	<%@include file="all_component/Navbar.jsp"%>
+		<c:if test= "${not empty addCart }">
+	
+		<div id="toast">${addCart}</div>
+
+		<script type="text/javascript">
+				showToast();
+				function showToast(content)
+				{
+				    $('#toast').addClass("display");
+				    $('#toast').html(content);
+				    setTimeout(()=>{
+				        $("#toast").removeClass("display");
+				    },2000)
+				}	
+		</script>
+		
+		<c:remove var="addCart" scope="session"/>
+	</c:if>
 	<div class="grid">
 		<div class="advertise__container">
 			<div class="advertise__container-Slider">
@@ -107,7 +125,7 @@
 								<%
 								if (!us.getName().equals("Admin")) {
 								%>	
-									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+									<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
 										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
@@ -177,7 +195,7 @@
 								<%
 								if (!us.getName().equals("Admin")) {
 								%>	
-									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+									<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
 										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
@@ -246,7 +264,7 @@
 								<%
 								if (!us.getName().equals("Admin")) {
 								%>	
-									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+									<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
 										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
@@ -316,7 +334,7 @@
 								<%
 								if (!us.getName().equals("Admin")) {
 								%>	
-									<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+									<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
 										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
@@ -382,7 +400,7 @@
 							<%
 							} else {
 							%> 
-								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+								<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
 									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<% 

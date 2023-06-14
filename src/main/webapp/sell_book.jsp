@@ -32,7 +32,7 @@
 								<input name="author" type="text" class="form-control form-control-lg" id="exampleInputAuthor" >
 							</div>
 							<div class="form-group form-control-lg">
-								<label for="exampleInputPrice" style="font-size: 2rem">Price*</label>
+								<label for="exampleInputPrice" style="font-size: 2rem">Giá*</label>
 								<input name="price" type="Number" class="form-control form-control-lg" id="exampleInputPrice" >
 							</div>
 							<div class="form-group form-control-lg">

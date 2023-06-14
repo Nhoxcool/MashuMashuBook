@@ -60,7 +60,7 @@
 								<input name="author" type="text" class="form-control" id="exampleInputAuthor" value="<%=b.getAuthor() %>">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPrice">Price*</label>
+								<label for="exampleInputPrice">Giá*</label>
 								<input name="price" type="Number" class="form-control" id="exampleInputPrice" value="<%=b.getPrice() %>">
 							</div>						
 							<div class="form-group">
