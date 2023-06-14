@@ -478,7 +478,7 @@
 	bottom: 30px;
 	left: 50%;
 	margin-left: -125px;
-	background-color: #80C4B7;
+	background-color: #97e6a0;
 	padding: 10px;
 	color: white;
 	text-align: center;
@@ -628,8 +628,15 @@ to {
 .comment{
 	width: 9%;
 	height: 50px;
-	background-color: #1fa2e5;
+	background-color: rgb(78,187,235);
 }
+
+.usercomment {
+	width: 25%;
+	height: 50px;
+	background-color: rgb(78,187,235);
+}
+
 
 .comment-box {
 	width: 100%;
@@ -637,6 +644,8 @@ to {
 	border-color: #1fa2e5;
 	
 }
+
+
 
 .pb-cmnt-container{
 	width: 100%;	

@@ -56,9 +56,9 @@
 			      <th scope="col">Hình ảnh</th>
 			      <th scope="col">Tên Sách</th>
 			      <th scope="col">Tên tác giả</th>
-			      <th scope="col">giá</th>
-			      <th scope="col">thể loại</th>
-			      <th scope="col">trạng thái</th>
+			      <th scope="col">Giá</th>
+			      <th scope="col">Thể loại</th>
+			      <th scope="col">Trạng thái</th>
 			      <th scope="col">Điều chỉnh</th>
 			    </tr>
 			  </thead>			  

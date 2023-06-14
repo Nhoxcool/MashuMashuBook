@@ -463,7 +463,7 @@
 	<div class="grid" style="margin-top: 5%">
 		<div class="comment">
 		<h2 style="padding: 10px 10px">Bình luận</h2>
-				</div>
+		</div>
 				<div class="pb-cmnt-container">
 				    <div class="row">
 				        <div class="col-md-12 col-md-offset-3">
@@ -479,10 +479,25 @@
 				</div>
 		</div>
 	</div>
+	<% 
+	CommentDAOImpl dao5 = new CommentDAOImpl(DBConnect.getConn());
+	List<Comment> list4 = dao5.getCommentByBookId(b.getBookID());
+	int i4 = 0;
+	for(Comment c: list4) {
+		i4 = i4 +1;
+	}
+	%>
+	<%
+	if (i4 != 0) {
+	%>	
 	<div class="grid" style="margin-top: 2%">
+		<div class="usercomment">
+		<h2 style="padding: 10px 10px">Bình luận của người dùng</h2>
+	</div>
+	<%
+	}
+	%>
 		<% 
-		CommentDAOImpl dao5 = new CommentDAOImpl(DBConnect.getConn());
-		List<Comment> list4 = dao5.getCommentByBookId(b.getBookID());
 		for(Comment c: list4) {
 		%>
 				<div class="Comment__content" style="width: 100%; background-color: white; padding: 10px 10px 15px 10px">
@@ -518,20 +533,36 @@
 			</div>
 		</div>
 		<div class="grid" style="margin-top: 2%">
-			<% 
-			CommentDAOImpl dao5 = new CommentDAOImpl(DBConnect.getConn());
-			List<Comment> list4 = dao5.getCommentByBookId(b.getBookID());
-			for(Comment c: list4) {
-			%>
-					<div class="Comment__content" style="width: 100%; background-color: white; padding: 10px 10px 15px 10px">
-						<p style="font-size: 2rem; color: #395898"><%=c.getEmail() %><p>
-						<div class="Comment__content--text">
-							<P><%=c.getComment() %></P>
-						</div>
+	<%
+	CommentDAOImpl dao5 = new CommentDAOImpl(DBConnect.getConn());
+	List<Comment> list4 = dao5.getCommentByBookId(b.getBookID());
+	int i4 = 0;
+	for(Comment c: list4) {
+		i4 = i4 +1;
+	}
+	%>
+	<%
+	if (i4 != 0) {
+	%>	
+	<div class="grid" style="margin-top: 2%">
+		<div class="usercomment">
+		<h2 style="padding: 10px 10px">Bình luận của người dùng</h2>
+	</div>
+	<%
+	}
+	%>
+		<% 
+		for(Comment c: list4) {
+		%>
+				<div class="Comment__content" style="width: 100%; background-color: white; padding: 10px 10px 15px 10px">
+					<p style="font-size: 2rem; color: #395898"><%=c.getEmail() %><p>
+					<div class="Comment__content--text">
+						<P><%=c.getComment() %></P>
 					</div>
-			<%
-			}
-			%>
+				</div>
+		<%
+		}
+		%>
 		</div>	
 		<%
 	}

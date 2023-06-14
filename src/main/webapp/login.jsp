@@ -42,12 +42,12 @@
 								    <input type="text" class="form-control form-control-lg" id="exampleInputEmail1" required="required" name="email">
 								  </div>						 
 								  <div class="mb-3">
-								    <label for="exampleInputPassword1" class="form-label">Password</label>
+								    <label for="exampleInputPassword1" class="form-label">Mật Khẩu</label>
 								    <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" required="required" name="password">
 								  </div>
 								  <div class="mb-3 form-check">
 								    <input type="checkbox" class="form-check-input " id="exampleCheck1">
-								    <label class="form-check-label" for="exampleCheck1">nhớ mật khẩu</label>
+								    <label class="form-check-label" for="exampleCheck1">Nhớ mật khẩu</label>
 								  </div>
 								  <div class="text-center">
 									  <button type="submit" class="Submit__btn2" style="margin-bottom: 15px"> Đăng Nhập</button>
