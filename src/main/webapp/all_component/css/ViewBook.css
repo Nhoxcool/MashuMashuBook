@@ -10,29 +10,6 @@
 	width: 60%;
 }
 
-.addtocart__Btn {
-	font-size: 1.2rem;
-	color: var(--white-color);
-	margin-top: 20.5%;
-	outline: none;
-	border: none;
-	border-radius: 3px;
-	width:35%;
-	height:50px;
-	background-color: var(--primary-color);
-}
-
-.addtocart__Btn:hover {
-	background-color: #ec593c;
-}
-
-
-.Addtocart {
-	width: 100%;
-}
-
-
-
 .Product_detail {
 	padding: 0 18px;
 }
@@ -71,6 +48,3 @@
 	outline: none;
 }
 
-.comment {
-	
-}

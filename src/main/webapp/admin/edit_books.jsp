@@ -42,7 +42,7 @@
 			<div class="col-md-4 offset-md-4">
 				<div class="card">
 					<div class="card-body">
-						<h4 class ="text-center">Edit Books</h4>
+						<h4 class ="text-center">Chỉnh Sửa Sách</h4>
 							
 							<%
 							int id =Integer.parseInt(request.getParameter("id"));

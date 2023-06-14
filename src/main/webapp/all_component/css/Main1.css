@@ -353,18 +353,44 @@
 	color: var(--white-color);
 }
 
+.btnbox {
+	display: flex;
+	width: 100%;
+}
+
 .Addtocart__btn {
+	display:inline-block;
 	margin-top: 3%;
 	font-size: 1.4rem;
 	color: var(--white-color);
 	font-weight:bold;
-	width: 30%;
+	width: 40%;
+	height: 40px;
+	outline: none;
+	border: 2px solid;
+	border-radius: 15px;
+	margin-right: 3px;
+	border-color: #ef8134;
+	color: #ef8134;
+	background-color: var(--white-color);
+}
+.BuyBtn{
+	margin-left: 4%;
+	display:inline-block;
+	margin-top: 3%;
+	font-size: 1.4rem;
+	color: var(--white-color);
+	font-weight:bold;
+	width: 40%;
 	height: 40px;
 	outline: none;
 	border: none;
 	border-radius: 15px;
-	margin-right: 3px;
 	background-color: #ef8134;
+}
+
+.BuyBtn:hover {
+	background-color: #ff9e50;
 }
 
 .Addtocarthome__btn {
@@ -382,7 +408,8 @@
 }
 
 .Addtocart__btn:hover {
-	background-color: #ff9e50;
+	border-color: #ff9e50;
+	color: #ff9e50;
 }
 
 .Addtocarthome__btn:hover {

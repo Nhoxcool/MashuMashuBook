@@ -81,7 +81,7 @@
 							<%
 							} else {
 							%> 
-								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+								<a href="allbookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
 									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<% 
