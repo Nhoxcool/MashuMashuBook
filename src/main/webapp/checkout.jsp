@@ -44,8 +44,8 @@
 					    <tr>
 					      <th scope="col">Hình ảnh sách</th>
 					      <th scope="col">Tên sách</th>
-					      <th scope="col">tên tác giả</th>
-					      <th scope="col">giá</th>
+					      <th scope="col">Tên tác giả</th>
+					      <th scope="col">Giá</th>
 					      <th scope="col">Hành động</th>
 					    </tr>
 					  </thead>
