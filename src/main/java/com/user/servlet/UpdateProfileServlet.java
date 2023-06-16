@@ -1,6 +1,7 @@
 package com.user.servlet;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -40,16 +41,52 @@ public class UpdateProfileServlet extends HttpServlet{
 			HttpSession session=req.getSession();
 			
 			boolean f = dao.checkPassword(id, password);
-			
+			Pattern pUpper = Pattern.compile("^.*[A-Z]+.*$");
+			Pattern pLower = Pattern.compile("^.*[a-z]+.*$");
+			Pattern pDigit = Pattern.compile("^.*[0-9]+.*$");
+			Pattern pSpecial = Pattern.compile("^.*[#?!@$%^&*-]+.*$");
+			Pattern pLength = Pattern.compile("^.{8,}$");
 			if(f)
 			{
-				boolean f2 = dao.updateProfile(us);
-				if(f2)
+				if (pUpper.matcher(password2).find())
 				{
-					session.setAttribute("SuccMsg", "Sửa thông tin thành công");
-					resp.sendRedirect("Edit_profile.jsp");
+					if(pLower.matcher(password2).find()) 
+					{
+						if(pDigit.matcher(password2).find()) 
+						{
+							if(pSpecial.matcher(password2).find())
+							{
+								if(pLength.matcher(password2).find()) 
+								{
+									boolean f2 = dao.updateProfile(us);
+									if(f2)
+									{
+										session.setAttribute("SuccMsg", "Sửa thông tin thành công");
+										resp.sendRedirect("Edit_profile.jsp");
+									}else {
+										session.setAttribute("failedMsg", "Sửa thông tin không thành công");
+										resp.sendRedirect("Edit_profile.jsp");
+									}
+								}else {
+									session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu phải dài ít nhất 8 ký tự)");
+									resp.sendRedirect("Edit_profile.jsp");
+								}
+
+							} else {
+								session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu bao gồm ít nhất 1 ký tự đặc biệt)");
+								resp.sendRedirect("Edit_profile.jsp");
+							}
+						}else {
+							session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu bao gồm ít nhất 1 chữ số)");
+							resp.sendRedirect("Edit_profile.jsp");
+						}
+					}else {
+						session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu bao gồm ít nhất 1 chữ cái viết thường)");
+						resp.sendRedirect("Edit_profile.jsp");
+					}
+
 				}else {
-					session.setAttribute("failedMsg", "Sửa thông tin không thành công");
+					session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu bao gồm ít nhất 1 chữ cái viết Hoa)");
 					resp.sendRedirect("Edit_profile.jsp");
 				}
 			}else {

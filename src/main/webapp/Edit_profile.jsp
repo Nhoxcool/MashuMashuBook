@@ -16,13 +16,13 @@
 				<div class="card">
 					<div class="card-body">
 						<h2 class ="text-center" style="font-size: 2rem">Chỉnh sửa thông tin</h2>
-								<c:if test="${not empty succMsg }">
-									<p class="text-center text-success">${succMsg}</p>
-									<c:remove var="succMsg" scope="session"/>
+								<c:if test="${not empty SuccMsg }">
+									<p class="text-center text-success" style="font-size: 2rem;">${SuccMsg}</p>
+									<c:remove var="SuccMsg" scope="session"/>
 								</c:if>
 								
 								<c:if test="${not empty failedMsg }">
-									<p class="text-center text-danger">${failedMsg}</p>
+									<p class="text-center text-danger" style="font-size: 2rem;">${failedMsg}</p>
 									<c:remove var="failedMsg" scope="session"/>
 								</c:if>											
 						<form action="update_profile" method="post" enctype="multipart/form-data">
