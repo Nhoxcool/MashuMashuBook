@@ -22,7 +22,7 @@
 							
 							<c:if test="${not empty failedMsg }">
 								<h5 class="text-center text-danger">${failedMsg}</h5>
-								<c:remove var="failed" scope="session"/>
+								<c:remove var="failedMsg" scope="session"/>
 							</c:if>							
 								
 								<form action="register" method="post"> <!-- Setup method Post cho form -->

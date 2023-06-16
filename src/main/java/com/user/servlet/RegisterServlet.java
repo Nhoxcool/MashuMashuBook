@@ -1,6 +1,7 @@
 package com.user.servlet;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -43,20 +44,57 @@ public class RegisterServlet extends HttpServlet{
 			if(check!=null) //check dữ liệu nhập vào
 			{
 					UserDAOImpl dao = new UserDAOImpl(DBConnect.getConn());
-					boolean f = dao.userRegister(us);
-					if (password.equals(repassword))
+					Pattern pUpper = Pattern.compile("^.*[A-Z]+.*$");
+					Pattern pLower = Pattern.compile("^.*[a-z]+.*$");
+					Pattern pDigit = Pattern.compile("^.*[0-9]+.*$");
+					Pattern pSpecial = Pattern.compile("^.*[#?!@$%^&*-]+.*$");
+					Pattern pLength = Pattern.compile("^.{8,}$");
+					if (pUpper.matcher(password).find())
 					{
-						if(f) {
-							session.setAttribute("succMsg", "Đăng ký thành công");
-							resp.sendRedirect("register.jsp");
+						if(pLower.matcher(password).find()) 
+						{
+							if(pDigit.matcher(password).find()) 
+							{
+								if(pSpecial.matcher(password).find())
+								{
+									if(pLength.matcher(password).find()) 
+									{
+										if (password.equals(repassword))
+										{
+											boolean f = dao.userRegister(us);
+											if(f) {
+												session.setAttribute("succMsg", "Đăng ký thành công");
+												resp.sendRedirect("register.jsp");
+											}else {
+												session.setAttribute("failedMsg", "Sever bị lỗi! Vui lòng thử lại");
+												resp.sendRedirect("register.jsp");;
+											}
+										}
+										else{
+										session.setAttribute("failedMsg", "Mật khẩu không trùng khớp");
+										resp.sendRedirect("register.jsp");
+										}
+									}else {
+										session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu phải dài ít nhất 8 ký tự)");
+										resp.sendRedirect("register.jsp");
+									}
+
+								} else {
+									session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu bao gồm ít nhất 1 ký tự đặc biệt)");
+									resp.sendRedirect("register.jsp");
+								}
+							}else {
+								session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu bao gồm ít nhất 1 chữ số)");
+								resp.sendRedirect("register.jsp");
+							}
 						}else {
-							session.setAttribute("failedMsg", "Sever bị lỗi! Vui lòng thử lại");
-							resp.sendRedirect("register.jsp");;
+							session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu bao gồm ít nhất 1 chữ cái viết thường)");
+							resp.sendRedirect("register.jsp");
 						}
-					}
-					else{
-					session.setAttribute("failedMsg", "Mật khẩu không trùng khớp");
-					resp.sendRedirect("register.jsp");
+
+					}else {
+						session.setAttribute("failedMsg", "Mật khẩu không đúng định dạng!(Mật khẩu bao gồm ít nhất 1 chữ cái viết Hoa)");
+						resp.sendRedirect("register.jsp");
 					}
 			}
 			else 
