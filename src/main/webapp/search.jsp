@@ -66,9 +66,21 @@
 							<%
 							} else {
 							%> 
-								<a href="cart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
-								</a> 
+									<%
+									if (!us.getName().equals("Admin")) {
+									%>	
+										<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+											<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+										</a> 
+									<%
+									} else {
+									%>
+										<a href="">
+											<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+										</a> 
+									<%
+									}
+									%> 
 							<% 
 							}
 							%>	

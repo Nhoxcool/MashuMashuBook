@@ -35,17 +35,23 @@
 			BookOrderImpl dao = new BookOrderImpl(DBConnect.getConn());
 			List<Book_Order> list = dao.getBook(us.getEmail());
 			for(Book_Order b:list)
-			{%>						
-			<tbody>
-				<tr>
-					<th scope="row"><%=b.getOrderId() %></th>				
-					<td><%=b.getUserName() %></td>
-					<td><%=b.getBookName() %></td>
-					<td><%=b.getAuthor() %></td>
-					<td><%=b.getPrice() %></td>
-					<td><%=b.getPaymentType() %></td>
-				</tr>
-			</tbody>			
+			{%>
+				<%
+				if (us.getName().equals(b.getUserName())) {
+				%>	
+					<tbody>
+					<tr>
+						<th scope="row"><%=b.getOrderId() %></th>				
+						<td><%=b.getUserName() %></td>
+						<td><%=b.getBookName() %></td>
+						<td><%=b.getAuthor() %></td>
+						<td><%=b.getPrice() %></td>
+						<td><%=b.getPaymentType() %></td>
+					</tr>
+					</tbody>	
+				<%
+				}
+				%> 								
 			<%}
 			%>
 		</table>

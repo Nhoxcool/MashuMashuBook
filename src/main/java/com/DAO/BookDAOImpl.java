@@ -444,12 +444,15 @@ public class BookDAOImpl implements BookDAO{
 		List<BookDtls> list = new ArrayList<BookDtls>();
 		BookDtls b=null;
 		try {
-			String sql ="select * from book_detail where bookname like ? or author like ? or bookCategory like ? and status=? ";
+			String sql ="select * from book_detail where  status=? and bookname like ? or status=? and author like ? or status=? and bookCategory like ? ";
 			PreparedStatement ps = conn.prepareStatement(sql);
-			ps.setString(1, "%"+ search+"%");
+			ps.setString(1, "Active");
 			ps.setString(2, "%"+ search+"%");
-			ps.setString(3, "%"+ search+"%");
-			ps.setString(4, "Active");
+			ps.setString(3, "Active");
+			ps.setString(4, "%"+ search+"%");
+			ps.setString(5, "Active");
+			ps.setString(6, "%"+ search+"%");
+			
 			
 			ResultSet rs = ps.executeQuery();
 			while(rs.next())
