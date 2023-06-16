@@ -1,3 +1,4 @@
+<%@page import="com.DAO.UserDAOImpl"%>
 <%@page import="com.DAO.CommentDAOImpl"%>
 <%@page import="com.entity.Comment"%>
 <%@page import="com.entity.User"%>
@@ -93,7 +94,21 @@
 				<%
 				if (b.getBookCategory().equals("Cũ"))
 				{%>
-				<p class="Author"> Người bán: <%=b.getEmail() %></p>
+					<%
+					UserDAOImpl dao6= new UserDAOImpl(DBConnect.getConn());
+					List<User> listus=dao6.getAllUser();
+					for(User user : listus){
+					%>
+						<%
+						if (b.getEmail().equals(user.getEmail())) {
+						%>
+							<p class="Author"> Người bán: <%=user.getName() %></p>
+						<%
+						} 
+						%>
+					<%
+					}
+					%>
 				<% 	
 				}%>
 				<p class="Category"> Thể loại: <%=b.getBookCategory() %></p>
@@ -173,9 +188,7 @@
 							if (b.getBookCategory().equals("Cũ")) {
 							%>	
 								<p style="font-size: 1.6rem"><%=b2.getBookName() %> (Cũ)
-								<p>	
-								<p style="font-size: 1.6rem">Người bán: <%=b2.getEmail() %>
-								<p>	
+								<p>		
 							<%
 							} else {
 							%>
@@ -298,8 +311,6 @@
 							%>	
 								<p style="font-size: 1.6rem"><%=b2.getBookName() %> (Cũ)
 								<p>	
-								<p style="font-size: 1.6rem">Người bán: <%=b2.getEmail() %>
-								<p>	
 							<%
 							} else {
 							%>
@@ -397,8 +408,6 @@
 								if (b2.getBookCategory().equals("Cũ")) {
 								%>	
 									<p style="font-size: 1.6rem"><%=b2.getBookName() %>(Cũ)
-									<p>	
-									<p style="font-size: 1.6rem">Người bán: <%=b2.getEmail() %>
 									<p>	
 								<%
 								} else {

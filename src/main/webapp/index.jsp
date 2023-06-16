@@ -177,39 +177,41 @@
 								<img src="book/<%=b.getPhotoName() %>" alt=""
 									style="width: 80%; height: 50%" class="img-thumblin">
 							</div>
-							<p style="font-size: 1.6rem"><%=b.getBookName() %>
-							<p>
-							<p style="font-size: 1.6rem"><%=b.getAuthor() %>
-							<p>
-							<p style="font-size: 1.6rem; color: #c92127"><%=b.getPrice() %>đ</p>
+							<div>
+								<p style="font-size: 1.6rem"><%=b.getBookName() %>
+								</p>
+								<p style="font-size: 1.6rem"><%=b.getAuthor() %>
+								</p>
+								<p style="font-size: 1.6rem; color: #c92127"><%=b.getPrice() %>đ</p>
+							</div>
 							<div class="text-center">
-							<%
-							if (us == null) {
-							%>	
-								<a href="login.jsp">
-									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
-								</a> 
-							<%
-							} else {
-							%> 
 								<%
-								if (!us.getName().equals("Admin")) {
+								if (us == null) {
 								%>	
-									<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+									<a href="login.jsp">
 										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 									</a> 
 								<%
 								} else {
-								%>
-									<a href="">
-										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
-									</a> 
-								<%
-								}
 								%> 
-							<% 
-							}
-							%>	
+									<%
+									if (!us.getName().equals("Admin")) {
+									%>	
+										<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+											<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+										</a> 
+									<%
+									} else {
+									%>
+										<a href="">
+											<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+										</a> 
+									<%
+									}
+									%> 
+								<% 
+								}
+								%>	
 							</div>
 							</a>
 						</div>
@@ -422,7 +424,8 @@
 		</div>
 	</div>
 	
-	<a href="#top"><div class="back_top_top" style="position: fixed; top:90%; right:5%;">
+	<a href="#top">
+	<div class="back_top_top" style="position: fixed; top:90%; right:5%;">
 		<img src="img/banner/7988932-removebg-preview.png" style="width: 50px; height: 50px">
 	</div>
 	</a>
