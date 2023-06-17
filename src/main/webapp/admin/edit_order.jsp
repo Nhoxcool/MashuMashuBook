@@ -96,15 +96,6 @@
 									</select>
 								<%
 								}
-								 else if (b.getOrderStatus().equals("Đang giao hàng"))
-								 {
-								%>
-									<select id="inputState" name="orderstatus" class="form-control">
-									<option value="Đang giao hàng">Đang giao hàng</option>
-									<option value="Giao Hàng Thành Công">Giao Hàng Thành Công</option>												
-									</select>
-								<%
-								}
 								%>
 							</div>
 							<button type="submit" class="editbutton">Thay Đổi</button>

@@ -94,12 +94,12 @@
 					<td><%=b.getOrderStatus() %></td>
 					<td>
 								<%
-								if (!b.getOrderStatus().equals("Giao Hàng Thành Công"))
+								if (!b.getOrderStatus().equals("Giao Hàng Thành Công") && !b.getOrderStatus().equals("Đã Hủy") && !b.getOrderStatus().equals("Đang giao hàng"))
 								{
 								%>	
 									<a href="edit_order.jsp?orderid=<%=b.getId()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
 								<%
-								} else {
+								} else if (b.getOrderStatus().equals("Giao Hàng Thành Công") || b.getOrderStatus().equals("Đã Hủy")) {
 								%>
 									<a href="../deleteorder?orderid=<%=b.getId()%>" class="btn btn-sm btn-danger">Xóa</a>
 								<%

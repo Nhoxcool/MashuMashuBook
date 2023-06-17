@@ -18,6 +18,32 @@
 	<%@include file="all_component/Navbar.jsp"%>
 	<div class="p-5" style="background-color: white; margin-top: 3%">
 		<h2 style="text-align: center; font-size: 2.5rem">Đơn đặt hàng của bạn</h2>
+		<c:if test="${not empty succMsgcomfirmorder }">
+			<div class="alert alert-success text-center fs-2">
+			  <strong>${succMsgcomfirmorder}</strong>
+			</div>
+			<c:remove var="succMsgcomfirmorder" scope="session"/>
+		</c:if>
+		
+		<c:if test="${not empty failedMsgcomfirmorder }">
+			<div class="alert alert-danger text-center fs-2">
+			  <strong>${failedMsgcomfirmorder}</strong>
+			</div>
+			<c:remove var="failedMsgcancelorder" scope="session"/>
+		</c:if>	
+		<c:if test="${not empty succMsgcancelorder }">
+			<div class="alert alert-success text-center fs-2">
+			  <strong>${succMsgcancelorder}</strong>
+			</div>
+			<c:remove var="succMsgcancelorder" scope="session"/>
+		</c:if>
+		
+		<c:if test="${not empty failedMsgcancelorder }">
+			<div class="alert alert-danger text-center fs-2">
+			  <strong>${failedMsgcancelorder}</strong>
+			</div>
+			<c:remove var="failedMsgcancelorder" scope="session"/>
+		</c:if>	
 	    <table class="table table-striped fs-2">
 		  <thead class="bg-info-subtle">
 		    <tr>
@@ -29,6 +55,7 @@
 		      <th scope="col">Giá</th>
 		      <th scope="col">Hình thức thanh toán</th>
 		      <th scope="col">Trạng Thái</th>
+		      <th scope="col">Hành Động</th>
 		    </tr>
 		  </thead>
 		  <tbody>
@@ -47,6 +74,30 @@
 		      <td><%=b.getPrice() %></td>
 		      <td><%=b.getPaymentType() %></td>
 		      <td><%=b.getOrderStatus() %></td>
+		      <%
+			  if (b.getOrderStatus().equals("Đang xử lí") || b.getOrderStatus().equals("Đã tiếp nhận")) {
+			  %>
+			  	<td>	
+				<form action="cancelorderbooks?orderid=<%=b.getId() %>" method="post">
+					<button class="btn btn-sm btn-danger fs-4" type="submit">Hủy Đơn Hàng</button>
+				</form>
+				</td>
+			  <%
+			  } else if (b.getOrderStatus().equals("Đang giao hàng")){
+			  %>
+			  	<td>	
+				<form action="comfirmorderbooks?orderid=<%=b.getId() %>" method="post">
+					<button class="btn btn-sm btn-success fs-4" type="submit">Xác nhận giao hàng</button>
+				</form>
+				</td>
+			  <%
+			  } else {
+			  %>
+				 <td>
+				 </td>
+			  <%
+			  }
+		      %>
 		    </tr>	  
 		  <%
 		  }
@@ -54,6 +105,7 @@
 		  </tbody>
 		</table>
 	</div>
+	<div style="margin-top: 15%"></div>
 	<%@include file="all_component/footer.jsp"%>
 </body>
 </html>
