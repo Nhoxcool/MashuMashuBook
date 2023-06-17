@@ -39,7 +39,7 @@ public class BookOrderImpl implements BookOrderDAO {
 	public boolean saveOrder(List<Book_Order> blist) {
 		boolean f = false;
 		try {
-			String sql="insert into book_order(oder_id,user_name,email,address,phone,book_name,author,price,payment,photo,orderstatus) values(?,?,?,?,?,?,?,?,?,?,?)";
+			String sql="insert into book_order(oder_id,user_name,email,address,phone,book_name,author,price,payment,photo,orderstatus,bid,bookcategory) values(?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			conn.setAutoCommit(false);
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
@@ -56,6 +56,8 @@ public class BookOrderImpl implements BookOrderDAO {
 				ps.setString(9, b.getPaymentType());
 				ps.setString(10,b.getPhotoname());
 				ps.setString(11,b.getOrderStatus());
+				ps.setInt(12,b.getBid());
+				ps.setString(13,b.getBookcategory());
 				ps.addBatch();
 			}
 			
@@ -94,6 +96,8 @@ public class BookOrderImpl implements BookOrderDAO {
 				 order.setPaymentType(rs.getString(10));
 				 order.setPhotoname(rs.getString(11));
 				 order.setOrderStatus(rs.getString(12));
+				 order.setBid(rs.getInt(13));
+				 order.setBookcategory(rs.getString(14));
 				 list.add(order);				 
 			 }
 			
@@ -127,6 +131,8 @@ public class BookOrderImpl implements BookOrderDAO {
 				order.setPaymentType(rs.getString(10));
 				order.setPhotoname(rs.getString(11));
 				order.setOrderStatus(rs.getString(12));
+				order.setBid(rs.getInt(13));
+				order.setBookcategory(rs.getString(14));
 				list.add(order);
 			}
 			
@@ -186,7 +192,8 @@ public class BookOrderImpl implements BookOrderDAO {
 					order.setPaymentType(rs.getString(10));
 					order.setPhotoname(rs.getString(11));
 					order.setOrderStatus(rs.getString(12));
-						
+					order.setBid(rs.getInt(13));
+					order.setBookcategory(rs.getString(14));
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -203,6 +210,25 @@ public class BookOrderImpl implements BookOrderDAO {
 			ps.setInt(2,order.getId());
 			
 			int i=ps.executeUpdate();
+			if(i==1)
+			{
+				f=true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return f;
+	}
+
+	public boolean deleteOrder(int id) {
+		boolean f = false;
+		try {
+			String sql = "delete from book_order where id=?";
+			PreparedStatement ps= conn.prepareStatement(sql);
+			ps.setInt(1,id);
+			int i = ps.executeUpdate();
 			if(i==1)
 			{
 				f=true;

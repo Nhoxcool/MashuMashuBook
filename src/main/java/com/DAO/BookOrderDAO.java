@@ -19,5 +19,7 @@ public interface BookOrderDAO {
 	
 	public Book_Order getOrderbyId(int orderid);
 	
+	public boolean deleteOrder(int id);
+	
 	public boolean updateEditOrderStatus(Book_Order order);
 }

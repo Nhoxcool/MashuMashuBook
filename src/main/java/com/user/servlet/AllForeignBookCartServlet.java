@@ -36,7 +36,7 @@ public class AllForeignBookCartServlet extends HttpServlet{
 			c.setPrice(Double.parseDouble(b.getPrice()));
 			c.setTotalPrice(Double.parseDouble(b.getPrice()));
 			c.setPhotoname(b.getPhotoName());
-			
+			c.setBookCategory(b.getBookCategory());
 			CartDAOImpl dao2 = new CartDAOImpl(DBConnect.getConn());
 			boolean  f = dao2.addCart(c);
 			

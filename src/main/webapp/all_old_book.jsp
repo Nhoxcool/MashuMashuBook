@@ -57,7 +57,7 @@
 								<img src="book/<%=b.getPhotoName() %>" alt=""
 									style="width: 80%; height: 50%" class="img-thumblin">
 							</div>
-							<p style="font-size: 1.6rem"><%=b.getBookName() %>
+							<p style="font-size: 1.6rem"><%=b.getBookName() %> (Cũ)
 							<p>
 							<p style="font-size: 1.6rem"><%=b.getAuthor() %>
 							<p>
@@ -70,14 +70,20 @@
 									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
-							} else {
+							} else if (us.getEmail().equals(b.getEmail())) {
 							%> 
-								<a href="alloldbookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+								<a href="">
 									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<% 
+							} else {
+							%> 
+								<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+								<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+								</a> 
+							<% 
 							}
-							%>	
+							%>		
 							</div>
 						</a>
 						</div>

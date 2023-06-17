@@ -402,12 +402,36 @@
 							<%
 							} else {
 							%> 
-								<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+								<%
+								if (!us.getName().equals("Admin")) {
+								%>	
+									<% 
+									if (us.getEmail().equals(b.getEmail()) && b.getBookCategory().equals("Cũ")) {
+									%> 
+										<a href="index.jsp">
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+										</a> 
+									<% 
+									} 	else {
+									%> 
+									<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
 									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
-								</a> 
+									</a> 
+									<% 
+									}
+									%>		
+								<%
+								} else {
+								%>
+									<a href="index.jsp">
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								}
+								%> 
 							<% 
 							}
-							%>	
+							%>
 								
 							</div>
 							</a>

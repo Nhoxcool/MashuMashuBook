@@ -39,6 +39,15 @@
 	
 	<div class="clearfix"></div>
 </div>
+		<c:if test="${not empty succMsgdeleteorder }">
+			<p class="text-center text-success" style="font-size: 2rem">${succMsgdeleteorder}</p>
+			<c:remove var="succMsgdeleteorder" scope="session" />
+		</c:if>
+
+		<c:if test="${not empty failedMsgdeleteorder }">
+			<p class="text-center text-danger" style="font-size: 2rem">${failedMsgdeleteorder}</p>
+			<c:remove var="failedMsgdeleteorder" scope="session" />
+		</c:if>
 		<c:if test="${not empty succMsgorder }">
 			<p class="text-center text-success" style="font-size: 2rem">${succMsgorder}</p>
 			<c:remove var="succMsgorder" scope="session" />
@@ -84,8 +93,18 @@
 					<td><%=b.getPaymentType()%></td>
 					<td><%=b.getOrderStatus() %></td>
 					<td>
-						<a href="edit_order.jsp?orderid=<%=b.getId()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
-						<a href="" class="btn btn-sm btn-danger">Xóa</a>
+								<%
+								if (!b.getOrderStatus().equals("Giao Hàng Thành Công"))
+								{
+								%>	
+									<a href="edit_order.jsp?orderid=<%=b.getId()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
+								<%
+								} else {
+								%>
+									<a href="../deleteorder?orderid=<%=b.getId()%>" class="btn btn-sm btn-danger">Xóa</a>
+								<%
+								}
+								%>
 					</td>
 				</tr>
 				<%
