@@ -39,11 +39,20 @@
 	
 	<div class="clearfix"></div>
 </div>
-	
+		<c:if test="${not empty succMsgorder }">
+			<p class="text-center text-success" style="font-size: 2rem">${succMsgorder}</p>
+			<c:remove var="succMsgorder" scope="session" />
+		</c:if>
+
+		<c:if test="${not empty failedMsgorder }">
+			<p class="text-center text-danger" style="font-size: 2rem">${failedMsgorder}</p>
+			<c:remove var="failedMsgorder" scope="session" />
+		</c:if>
 			<table class="table table-striped"> 
 			  <thead class="bg-info-subtle">
 			    <tr>
 			      <th scope="col">Order id</th>
+			      <th scope="col">Hình ảnh</th>
 			      <th scope="col">Tên</th>
 			      <th scope="col">Email</th>
 			      <th scope="col">Địa Chỉ</th>
@@ -52,6 +61,8 @@
 			      <th scope="col">Tác Giả</th>
 			      <th scope="col">Giá</th>
 			      <th scope="col">Hình thức thanh toán</th>
+			      <th scope="col">Tình Trạng</th>
+			      <th scope="col">Điều Chỉnh</th>
 			    </tr>
 			  </thead>
 			  <tbody class="table-group-divider">
@@ -62,6 +73,7 @@
 				%>
 					<tr>
 					<th scope="row"><%=b.getOrderId()%></th>
+					<td><img src="../book/<%=b.getPhotoname() %>" style="width: 50px; hegiht: 50px;"></td>
 					<td><%=b.getUserName()%></td>
 					<td><%=b.getEmail()%></td>
 					<td><%=b.getFulladd()%></td>
@@ -70,6 +82,11 @@
 					<td><%=b.getAuthor()%></td>
 					<td><%=b.getPrice()%></td>
 					<td><%=b.getPaymentType()%></td>
+					<td><%=b.getOrderStatus() %></td>
+					<td>
+						<a href="edit_order.jsp?orderid=<%=b.getId()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
+						<a href="" class="btn btn-sm btn-danger">Xóa</a>
+					</td>
 				</tr>
 				<%
 				}

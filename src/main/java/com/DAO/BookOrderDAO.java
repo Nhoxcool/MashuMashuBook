@@ -2,7 +2,9 @@ package com.DAO;
 
 import java.util.List;
 
+import com.entity.BookDtls;
 import com.entity.Book_Order;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Order;
 
 public interface BookOrderDAO {
 	public int getOrderNo();
@@ -14,4 +16,8 @@ public interface BookOrderDAO {
 	public List<Book_Order> getAllBookOrder();
 	
 	public List<Book_Order> getTopBookOrder();
+	
+	public Book_Order getOrderbyId(int orderid);
+	
+	public boolean updateEditOrderStatus(Book_Order order);
 }

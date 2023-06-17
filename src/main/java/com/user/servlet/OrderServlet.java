@@ -46,6 +46,7 @@ public class OrderServlet extends HttpServlet {
 			String huyen = req.getParameter("huyen");
 			String pincode = req.getParameter("pincode");
 			String paymentType = req.getParameter("payment");
+			String orderstatus = "Đang xử lí";
 			
 			String fullAdd= diachi+","+quan+","+huyen+","+city;
 			
@@ -77,6 +78,8 @@ public class OrderServlet extends HttpServlet {
 					order.setAuthor(c.getAuthor());
 					order.setPrice(c.getPrice()+"");
 					order.setPaymentType(paymentType);
+					order.setPhotoname(c.getPhotoname());
+					order.setOrderStatus(orderstatus);
 					orderslist.add(order);
 				}
 				

@@ -1,5 +1,6 @@
+<%@page import="com.entity.Book_Order"%>
+<%@page import="com.DAO.BookOrderImpl"%>
 <%@page import="com.entity.BookDtls"%>
-<%@page import="java.util.List"%>
 <%@page import="com.DB.DBConnect"%>
 <%@page import="com.DAO.BookDAOImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -10,15 +11,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Tất cả sách</title>
+<title>Chỉnh sửa đơn hàng</title>
 <link>
 <%@include file="allCss.jsp"%>
-<link rel="stylesheet" href="css/Adminhome2.css?version=1">
+<link rel="stylesheet" href="Adminhome.css?version=1">
 <script src="https://kit.fontawesome.com/852351e3ff.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div id="mySidenav" class="sidenav">
+	<div id="mySidenav" class="sidenav">
 	<p class="logo"><a href="../index.jsp"><img src="adminimg/logo-removebg-preview.png" alt=" "></a>
   <a href="home.jsp" class="icon-a"><i class="fa fa-dashboard icons"></i> &nbsp;&nbsp;Dashboard</a>
   <a href="add_books.jsp"class="icon-a"><i class="fa-solid fa-book-medical icons"></i> &nbsp;&nbsp;Thêm Sách</a>
@@ -32,71 +33,60 @@
 
 	<div class="head">
 		<div class="col-div-6">
-<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav"  >&#9776; Tất cả Sách</span>
-<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav2"  >&#9776; Tất cả Sách</span>
+<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav"  >&#9776; Chỉnh Sửa Đơn Hàng</span>
+<span style="font-size:30px;cursor:pointer; color: #46aef7;" class="nav2"  >&#9776; Chỉnh Sửa Đơn Hàng</span>
 </div>
 	
 	<div class="clearfix"></div>
 </div>
-
-
-		<c:if test="${not empty succMsg }">
-			<p class="text-center text-success" style="font-size: 2rem">${succMsg}</p>
-			<c:remove var="succMsg" scope="session" />
-		</c:if>
-
-		<c:if test="${not empty failedMsg }">
-			<p class="text-center text-danger" style="font-size: 2rem">${failedMsg}</p>
-			<c:remove var="failedMsg" scope="session" />
-		</c:if>
-		<table class="table table-striped"> 
-			  <thead class="bg-info-subtle">
-			    <tr>
-			      <th scope="col">id</th>
-			      <th scope="col">Hình ảnh</th>
-			      <th scope="col">Tên Sách</th>
-			      <th scope="col">Tên tác giả</th>
-			      <th scope="col">Giá</th>
-			      <th scope="col">Thể loại</th>
-			      <th scope="col">Trạng thái</th>
-			      <th scope="col">Điều chỉnh</th>
-			    </tr>
-			  </thead>			  
-			  <tbody class="table-group-divider">
-				<%
-				BookDAOImpl dao= new BookDAOImpl(DBConnect.getConn());
-				List<BookDtls> list=dao.getAllBooks();
-				int i = 0;
-				for(BookDtls b : list){
-					if(!b.getBookCategory().equals("Cũ"))
-					{
-					i++;
-					}
-				%>
-					<% 
-					if(!b.getBookCategory().equals("Cũ")){
-					%>
-					<tr>
-						<th scope="row"><%=i%></th>
-						<td><img src="../book/<%=b.getPhotoName() %>" style="width: 50px; hegiht: 50px;"></td>
-						<td><%=b.getBookName()%></td>
-						<td><%=b.getAuthor()%></td>
-						<td><%=b.getPrice()%></td>
-						<td><%=b.getBookCategory()%></td>
-						<td><%=b.getStatus()%></td>
-						<td>
-						<a href="edit_books.jsp?id=<%=b.getBookID()%>" class="btn btn-sm btn-primary">Chỉnh Sửa</a> 
-						<a href="../delete?id=<%=b.getBookID() %>" class="btn btn-sm btn-danger">Xóa</a>
-						</td>
-					</tr>
-					<%
-					}%>
-
-				<%
-				}
-				%>
-			  </tbody>
-			</table>
+	<div class="container">'
+		<div class="row">
+			<div class="col-md-4 offset-md-4">
+				<div class="card">
+					<div class="card-body">
+						<h4 class ="text-center">Chỉnh Sửa Đơn Hàng</h4>
+							
+							<%
+							int orderid =Integer.parseInt(request.getParameter("orderid"));
+							BookOrderImpl dao =new BookOrderImpl(DBConnect.getConn());
+							Book_Order b= dao.getOrderbyId(orderid);						
+							%>					
+						<form action="../editorderbooks" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="orderid" value="<%=b.getId() %>">							
+							<div class="form-group">
+								<p><span style="font-weight: bold;">Mã Đơn Hàng:</span> <%=b.getOrderId() %></p>
+							</div>
+							<div class="form-group">
+								<img src="../book/<%=b.getPhotoname()%>" style="width: 200px; hegiht: 100px; margin-left: 25%;">
+							</div>
+							<div class="form-group">
+								<p><span style="font-weight: bold;">Email Người Đặt Hàng:</span> <%=b.getEmail() %></p>
+							</div>
+							<div class="form-group">
+								<p><span style="font-weight: bold;">Tên Người Đặt Hàng:</span> <%=b.getUserName() %></p>
+							</div>
+							<div class="form-group">
+								<p><span style="font-weight: bold;">Số Điện Thoại:</span> <%=b.getPhno() %></p>
+							</div>
+							<div class="form-group">
+								<p><span style="font-weight: bold;">Địa Chỉ Người Đặt Hàng: </span> <%=b.getFulladd() %></p>
+							</div>
+							<div class="form-group">
+								<label for = "inputState">Trạng thái đơn hàng</label>
+								<select id="inputState" name="orderstatus" class="form-control">
+								<option value="Đang xử lí">Đang xử lí</option>
+								<option value="Đã tiếp nhận">Đã Tiếp Nhận</option>
+								<option value="Đang giao hàng">Đang giao hàng</option>
+								<option value="Giao Hàng Thành Công">Giao Hàng Thành Công</option>
+								</select>
+							</div>
+							<button type="submit" class="editbutton">Thay Đổi</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
  
