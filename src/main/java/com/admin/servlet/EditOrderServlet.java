@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.DAO.BookDAOImpl;
 import com.DAO.BookOrderImpl;
 import com.DB.DBConnect;
 import com.entity.Book_Order;
@@ -34,13 +35,22 @@ public class EditOrderServlet extends HttpServlet{
 			
 			BookOrderImpl dao = new BookOrderImpl(DBConnect.getConn());
 			boolean f=dao.updateEditOrderStatus(b);
-			
+			BookDAOImpl dao2 = new BookDAOImpl(DBConnect.getConn());
 			HttpSession session = req.getSession();
 
 			if(f)
 			{
-				session.setAttribute("succMsgorder", "Bạn đã update đơn hàng thành công");
-				resp.sendRedirect("admin/orders.jsp");
+				Book_Order order = dao.getOrderbyId(orderid);
+				if(order.getOrderStatus().equals("Đang lấy hàng") && order.getBookcategory().equals("Cũ"))
+				{
+					boolean f2 = dao2.deleteBooks(order.getBid());
+					session.setAttribute("succMsgorder", "Bạn đã update đơn hàng thành công");
+					resp.sendRedirect("admin/orders.jsp");
+				}
+				else {
+					session.setAttribute("succMsgorder", "Bạn đã update đơn hàng thành công");
+					resp.sendRedirect("admin/orders.jsp");
+				}
 			}else {
 				session.setAttribute("failedMsgorder", "Update đơn hàng không thành công");
 				resp.sendRedirect("admin/orders.jsp");

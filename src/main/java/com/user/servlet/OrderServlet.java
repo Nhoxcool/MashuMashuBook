@@ -80,6 +80,8 @@ public class OrderServlet extends HttpServlet {
 					order.setPaymentType(paymentType);
 					order.setPhotoname(c.getPhotoname());
 					order.setOrderStatus(orderstatus);
+					order.setBid(c.getBookid());
+					order.setBookcategory(c.getBookCategory());
 					orderslist.add(order);
 				}
 				

@@ -13,6 +13,8 @@ public class Book_Order {
 	private String paymentType;
 	private String photoname;
 	private String orderStatus;
+	private int bid;
+	private String bookcategory;
 	public Book_Order() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -101,6 +103,22 @@ public class Book_Order {
 
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
+	}
+
+	public int getBid() {
+		return bid;
+	}
+
+	public void setBid(int bid) {
+		this.bid = bid;
+	}
+
+	public String getBookcategory() {
+		return bookcategory;
+	}
+
+	public void setBookcategory(String bookcategory) {
+		this.bookcategory = bookcategory;
 	}
 	
 	

@@ -73,12 +73,39 @@
 							</div>
 							<div class="form-group">
 								<label for = "inputState">Trạng thái đơn hàng</label>
-								<select id="inputState" name="orderstatus" class="form-control">
-								<option value="Đang xử lí">Đang xử lí</option>
-								<option value="Đã tiếp nhận">Đã Tiếp Nhận</option>
-								<option value="Đang giao hàng">Đang giao hàng</option>
-								<option value="Giao Hàng Thành Công">Giao Hàng Thành Công</option>
-								</select>
+								<%
+								if (b.getOrderStatus().equals("Đang xử lí")) {
+								%>	
+									<select id="inputState" name="orderstatus" class="form-control">
+									<option value="Đang xử lí">Đang xử lí</option>	
+									<option value="Đã tiếp nhận">Đã Tiếp Nhận</option>				
+									</select>
+								<%
+								} else if (b.getOrderStatus().equals("Đã tiếp nhận")){
+								%>
+									<select id="inputState" name="orderstatus" class="form-control">
+									<option value="Đã tiếp nhận">Đã Tiếp Nhận</option>										
+									<option value="Đang lấy hàng">Đang lấy hàng</option>							
+									</select>
+								<%
+								} else if (b.getOrderStatus().equals("Đang lấy hàng")){
+								%>
+									<select id="inputState" name="orderstatus" class="form-control">
+									<option value="Đang lấy hàng">Đang lấy hàng</option>	
+									<option value="Đang giao hàng">Đang giao hàng</option>	
+									</select>
+								<%
+								}
+								 else if (b.getOrderStatus().equals("Đang giao hàng"))
+								 {
+								%>
+									<select id="inputState" name="orderstatus" class="form-control">
+									<option value="Đang giao hàng">Đang giao hàng</option>
+									<option value="Giao Hàng Thành Công">Giao Hàng Thành Công</option>												
+									</select>
+								<%
+								}
+								%>
 							</div>
 							<button type="submit" class="editbutton">Thay Đổi</button>
 						</form>

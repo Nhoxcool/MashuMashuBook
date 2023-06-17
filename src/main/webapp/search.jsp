@@ -58,31 +58,43 @@
 							<div class="text-center">
 							<%
 							if (us == null) {
-							%>
+							%>	
 								<a href="login.jsp">
 									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
 								</a> 
 							<%
 							} else {
 							%> 
-									<%
-									if (!us.getName().equals("Admin")) {
-									%>	
-										<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
-											<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
-										</a> 
-									<%
-									} else {
-									%>
-										<a href="">
-											<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
-										</a> 
-									<%
-									}
+								<%
+								if (!us.getName().equals("Admin")) {
+								%>	
+									<% 
+									if (us.getEmail().equals(b.getEmail()) && b.getBookCategory().equals("Cũ")) {
 									%> 
+										<a href="index.jsp">
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+										</a> 
+									<% 
+									} 	else {
+									%> 
+									<a href="homebookcart?bid=<%=b.getBookID() %>&&uid=<%=us.getId() %>">
+									<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+									</a> 
+									<% 
+									}
+									%>		
+								<%
+								} else {
+								%>
+									<a href="index.jsp">
+										<button class="Addtocarthome__btn">Thêm vào giỏ hàng</button>
+									</a> 
+								<%
+								}
+								%> 
 							<% 
 							}
-							%>	
+							%>
 							</div>
 						</a>
 						</div>

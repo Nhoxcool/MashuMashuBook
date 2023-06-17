@@ -20,7 +20,7 @@ public class CartDAOImpl implements CartDAO {
 		boolean f = false;
 		
 		try {
-			String sql = "insert into cart(bid,uid,bookName,author,price,total_price,photo) values(?,?,?,?,?,?,?)";
+			String sql = "insert into cart(bid,uid,bookName,author,price,total_price,photo,bookcategory) values(?,?,?,?,?,?,?,?)";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setInt(1, c.getBookid());
 			ps.setInt(2, c.getUserid());
@@ -29,7 +29,7 @@ public class CartDAOImpl implements CartDAO {
 			ps.setDouble(5, c.getPrice());
 			ps.setDouble(6, c.getTotalPrice());
 			ps.setString(7, c.getPhotoname());
-			
+			ps.setString(8, c.getBookCategory());
 			int i=ps.executeUpdate();
 			if(i==1) {
 				f = true;
@@ -62,6 +62,7 @@ public class CartDAOImpl implements CartDAO {
 				c.setPrice(rs.getDouble(6));
 				totalPrice = totalPrice + rs.getDouble(7);
 				c.setPhotoname(rs.getString(8));
+				c.setBookCategory(rs.getString(9));
 				c.setTotalPrice(totalPrice);
 				list.add(c);
 			}

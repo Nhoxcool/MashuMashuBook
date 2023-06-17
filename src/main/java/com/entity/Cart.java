@@ -9,8 +9,14 @@ public class Cart {
 	private Double price;
 	private Double totalPrice;
 	private String Photoname;
+	private String BookCategory;
 	
-	
+	public String getBookCategory() {
+		return BookCategory;
+	}
+	public void setBookCategory(String bookCategory) {
+		BookCategory = bookCategory;
+	}
 	public int getCartid() {
 		return cartid;
 	}
