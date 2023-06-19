@@ -40,13 +40,20 @@ public class EditBookServlet extends HttpServlet{
 			
 			BookDAOImpl dao = new BookDAOImpl(DBConnect.getConn());
 			boolean f=dao.updateEditBooks(b);
+			BookDtls book = dao.getBookById(id);
 			
 			HttpSession session = req.getSession();
 
 			if(f)
 			{
+				if (book.getBookCategory().equals("Cũ"))
+				{
+					session.setAttribute("succMsg", "Bạn đã update sách thành công");
+					resp.sendRedirect("admin/AllOldBook.jsp");
+				} else {
 				session.setAttribute("succMsg", "Bạn đã update sách thành công");
 				resp.sendRedirect("admin/AllBook.jsp");
+				}
 			}else {
 				session.setAttribute("failedMsg", "Update không thành công");
 				resp.sendRedirect("admin/AllBook.jsp");

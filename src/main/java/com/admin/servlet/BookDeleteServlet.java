@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.DAO.BookDAOImpl;
 import com.DB.DBConnect;
+import com.entity.BookDtls;
 
 @WebServlet("/delete")
 @MultipartConfig
@@ -23,19 +24,25 @@ public class BookDeleteServlet extends HttpServlet {
 			int id =Integer.parseInt(req.getParameter("id"));
 			
 			BookDAOImpl dao = new BookDAOImpl(DBConnect.getConn());
+			BookDtls book = dao.getBookById(id);
 			boolean f=dao.deleteBooks(id);
 			
 			HttpSession session = req.getSession();
 
 			if(f)
 			{
+				if(book.getBookCategory().equals("Cũ"))
+				{
+					session.setAttribute("succMsg", "Bạn đã xóa thành công");
+					resp.sendRedirect("admin/AllOldBook.jsp");
+				} else {
 				session.setAttribute("succMsg", "Bạn đã xóa thành công");
 				resp.sendRedirect("admin/AllBook.jsp");
+				}
 			}else {
 				session.setAttribute("failedMsg", "Xóa không thành công");
 				resp.sendRedirect("admin/AllBook.jsp");
 			}
-			
 			
 		} catch (Exception e) {
 			e.printStackTrace();

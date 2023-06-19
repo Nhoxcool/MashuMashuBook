@@ -32,6 +32,7 @@ public class LoginServlet extends HttpServlet {
 				
 				User us = new User();
 				us.setName("Admin");
+				us.setEmail("admin@gmail.com");
 				session.setAttribute("user", us); /* set attribute cho Admin */
 				resp.sendRedirect("admin/home.jsp");			
 			}else {
