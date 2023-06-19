@@ -41,12 +41,12 @@
 
 
 		<c:if test="${not empty succMsg }">
-			<p class="text-center text-success">${succMsg}</p>
+			<p class="text-center text-success fs-2">${succMsg}</p>
 			<c:remove var="succMsg" scope="session" />
 		</c:if>
 
 		<c:if test="${not empty failedMsg }">
-			<p class="text-center text-danger">${failedMsg}</p>
+			<p class="text-center text-danger fs-2">${failedMsg}</p>
 			<c:remove var="failedMsg" scope="session" />
 		</c:if>
 		<table class="table table-striped"> 
@@ -66,7 +66,7 @@
 			  <tbody class="table-group-divider">
 				<%
 				BookDAOImpl dao= new BookDAOImpl(DBConnect.getConn());
-				List<BookDtls> list=dao.getAllOldBooks();
+				List<BookDtls> list=dao.getAllOldAdminBooks();
 				int i = 0;
 				for(BookDtls b : list){
 					i++;

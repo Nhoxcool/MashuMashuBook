@@ -30,7 +30,7 @@ public class AdđOldBook extends HttpServlet{
 			String price=req.getParameter("price");
 			String categorise="Cũ";
 			String detail="Đây là sách cũ";
-			String status="Active";
+			String status="Inactive";
 			Part part= req.getPart("bimg");
 			String fileName=part.getSubmittedFileName();
 			

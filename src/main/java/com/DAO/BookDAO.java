@@ -10,6 +10,8 @@ public interface BookDAO {
 	
 	public List<BookDtls> getAllBooks();
 	
+	public List<BookDtls> getAllOldAdminBooks();
+	
 	public BookDtls getBookById(int id);
 	
 	public boolean updateEditBooks(BookDtls b);
@@ -47,4 +49,6 @@ public interface BookDAO {
 	public boolean DeleteOldBook(String email,String Category, int id);
 	
 	public List<BookDtls> getBookBySearch(String search);
+	
+	
 }
